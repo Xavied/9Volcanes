@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmprendimientoController;
 use App\Http\Controllers\HomeController;
 
@@ -19,9 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//Productos
+Route::get('/productos', [ProductoController::class,'productos']);
+Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
+
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
 Route::get('/emprendimientos', [EmprendimientoController::class, 'index'])->name('emprendimientos.index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

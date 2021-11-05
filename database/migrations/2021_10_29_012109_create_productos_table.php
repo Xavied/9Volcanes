@@ -21,10 +21,13 @@ class CreateProductosTable extends Migration
             $table->float('precio');
             $table->integer('cantidad');
             $table->boolean('visible')->default(true);
+            
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
+            
             $table->unsignedBigInteger('marca_id');
             $table->foreign('marca_id')->references('id')->on('marcas');
+            
             $table->timestamps();
         });
     }
