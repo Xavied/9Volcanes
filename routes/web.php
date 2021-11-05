@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Productos
+Route::get('/productos', [ProductoController::class,'productos']);
+Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
