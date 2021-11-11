@@ -22,13 +22,15 @@ Route::get('/', function () {
 
 
 //Productos
-Route::get('/productos', [ProductoController::class,'productos']);
-Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
+Route::get('/productos', [ProductoController::class, 'productos']);
+Route::get('/productos/{productoe:slug}', [ProductoController::class, 'producto'])->name('producto');
 
-Route::get('/home',[HomeController::class,'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/emprendimientos', [EmprendimientoController::class, 'index'])->name('emprendimientos.index');
-
+Route::get('/nosotros', function () {
+    return view('nosotros');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,4 +38,4 @@ Route::get('/dashboard', function () {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
