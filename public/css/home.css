@@ -5,9 +5,46 @@
     object-fit: cover;
 }
 
+.txtprom {
+    color: #627A6D;
+    font-size: 50px;
+}
+
+
+/*imagenes promociones*/
+
+.contenPrd {
+    position: relative;
+    display: inline-block;
+}
+
+.contenPrd img:hover {
+    transform: scale(1.02);
+}
+
+
+/*Css imagenes promociones*/
+
+.txtproducto {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(222, 226, 221, .6);
+}
+
+.txtproducto a:hover {
+    background-color: rgba(222, 226, 221, 0.692);
+}
+
+
+/**/
+
 @media (max-width: 991.98px) {
     /*Imagenes Carousel*/
     .carouseltmn {
         height: 300px;
+    }
+    .txtprom {
+        font-size: 40px;
     }
 }
