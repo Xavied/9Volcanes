@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmprendimientoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,12 @@ Route::get('/emprendimientos', [EmprendimientoController::class, 'index'])->name
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+//Ver pagina del newsletter
+Route::get('/news', [NewsletterController::class, 'index']);
+//Enviar pagina del newsletter
+Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newsletter');
+    
 
 
 
