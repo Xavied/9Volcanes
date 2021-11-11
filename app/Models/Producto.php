@@ -22,4 +22,17 @@ class Producto extends Model
   {
     return $this->morphMany(Imagenes::class, 'imageable');
   }
+
+  public function getGetNombreAttribute($key)
+  {
+    //return substr ($this->nombre, 20);
+    return substr($this->nombre, 0, 20);
+  }
+
+  public function scopeBuscarpor($query, $buscar) {
+        
+    //return $query->where('nombre','like',"%$buscar%")->orWhere('descripcion','like',"%$buscar%");
+    return $query->where('nombre','like',"%$buscar%");
+
+}
 }

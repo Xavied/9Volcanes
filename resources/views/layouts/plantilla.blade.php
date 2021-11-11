@@ -64,7 +64,9 @@
                         <a class="nav-link " style=" color: #002800;" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
+
                         <a class="nav-link " style=" color: #002800;" href="/productos">Productos</a>
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="#">Emprendimientos</a>
