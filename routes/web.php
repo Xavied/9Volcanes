@@ -22,8 +22,9 @@ Route::get('/', function () {
 
 
 //Productos
-Route::get('/productos', [ProductoController::class,'productos']);
+Route::get('/productos', [ProductoController::class,'productos'])->name('productos');
 Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
+Route::get('/categorias/{categoria:slug}', [ProductoController::class,'categoria'])->name('categoria');
 
 Route::get('/home',[HomeController::class,'index'])->name('home');
 
