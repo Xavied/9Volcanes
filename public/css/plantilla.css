@@ -7,7 +7,8 @@
 .titulo {
     color: #002800;
     font-weight: bolder;
-    font-size: 34pt;
+    font-size: 40pt;
+    font-style: oblique;
 }
 
 .txtjmb {
@@ -18,6 +19,9 @@
     margin-top: 0px;
     background-color: #e4f0f0;
 }
+
+
+/*css breadcrumb*/
 
 .breadtop {
     height: 40px;
@@ -31,6 +35,9 @@
     height: 100%;
     border-radius: 5px;
 }
+
+
+/* fin css breadcrumb*/
 
 
 /* Footer Container*/
@@ -92,6 +99,9 @@ footer {
 @media (max-width: 991.98px) {
     .colorhead {
         padding-bottom: 3%;
+    }
+    .titulo {
+        text-align: center;
     }
     /* Footer Container*/
     .input-group {
