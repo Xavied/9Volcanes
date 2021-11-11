@@ -14,4 +14,8 @@ class Marca extends Model
     {
       return $this->hasMany(Producto::class);
     }
+    public function Imagenes()
+    {
+      return $this->morphMany(Imagenes::class, 'imageable');
+    }
 }
