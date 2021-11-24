@@ -1,5 +1,17 @@
 @extends('layouts/plantilla')
 
+<!-- sección head -->
+@section('head')
+    <title>{{ $producto->nombre }}</title>
+    <link rel="stylesheet" href="{{ asset('css/carrusel.css') }}">
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+@endsection
+<!-- Fin sección head -->
+
 @section('content')
 
 <!--Breadcrumb página productos-->
@@ -8,7 +20,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item"><a href="/home">Productos</a></li>
+            <li class="breadcrumb-item"><a href="/productos">Productos</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $producto->nombre }}</li>
         </ol>
     </nav>
@@ -24,39 +36,24 @@
 
 <div class="container">
     <br>
-    <div class="row">        
-        <!-- Carrusel de imágenes del producto -->
-        <div class="col-md-6 col-sm-12">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                </div>
-                <div class="carousel-inner">                    
-                  <div class="carousel-item active">
-                    <img src="{{url('/storage').'/'.$producto->Imagenes->first()->url}}" class="d-block w-100" alt="...">
-                  </div>
-                  @foreach ($producto->Imagenes->take(-3) as $Imagen)
-                    <div class="carousel-item">
+    <div class="row">
+        <!-- Carrusel de imágenes del producto -->        
+        <div class="col-md-6 col-sm-12">        
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach ($producto->Imagenes as $Imagen)
+                    <div class="swiper-slide">
                         <img src="{{url('/storage').'/'.$Imagen->url}}" class="d-block w-100" alt="...">
                     </div>
                   @endforeach
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-              <br>
-        </div>  
+                </div>               
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>    
+        </div>
         <!-- End Carrusel de imágenes del producto -->
-
+        
         <!-- Datos producto -->
         <div class="col-md-6 col-sm-12">
             <div class="card mb-4">
@@ -121,5 +118,26 @@
     </div>
     <br>
 </div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 @endsection
 

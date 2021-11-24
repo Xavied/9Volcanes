@@ -1,5 +1,11 @@
 @extends('layouts/plantilla')
 
+<!-- sección head -->
+@section('head')
+    <title>Productos</title>
+@endsection
+<!-- Fin sección head -->
+
 @section('content')
 
 <!--Breadcrumb página productos-->
