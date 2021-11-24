@@ -14,23 +14,22 @@
 
 @section('content')
 <br>
-<div>
-    <form method="POST" action="{{route('newsletter')}}">
-        {{ csrf_field() }}
-      <div class="row">
-          <div class="form-group col-md-4">
-              <button type="submit" class="btn btn-success">Enviar</button>
-          </div>
-      </div>
-    </form>
-</div>
-<br>
-   
     <div>
-        <!-- sección news -->
-        @section('news')
-        @endsection
-        <!-- Fin sección news -->
+        <form method="POST" action="{{route('newsletter')}}">
+            {{ csrf_field() }}
+        <div class="row">
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+        </div>
+        </form>
     </div>
 
+
 @endsection
+<div>
+    <!-- sección news -->
+    @section('news')
+    @endsection
+    <!-- Fin sección news -->
+</div>
