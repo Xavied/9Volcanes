@@ -34,5 +34,9 @@ class Producto extends Model
     //return $query->where('nombre','like',"%$buscar%")->orWhere('descripcion','like',"%$buscar%");
     return $query->where('nombre','like',"%$buscar%");
 
-}
+  }
+  public function facdetalle()
+  {
+    return $this->hasMany(FacDetalle::class);
+  }
 }
