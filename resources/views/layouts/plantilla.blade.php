@@ -33,7 +33,7 @@
                     </div>
                     <div class="col d-flex justify-content-end">
                         <div class="btn-group">
-                            <a href="" class=" btn link-secondary txtjmb">Iniciar / Registrarse</a>
+                            <a href="/login" class=" btn link-secondary txtjmb">Iniciar / Registrarse</a>
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             <div>
                                 <a href="" class="btn link-secondary txtjmb">(0 Productos)
@@ -70,7 +70,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " style=" color: #002800;" href="#">Emprendimientos</a>
+                        <a class="nav-link " style=" color: #002800;" href="/emprendimientos">Emprendimientos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
