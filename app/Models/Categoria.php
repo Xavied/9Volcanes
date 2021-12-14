@@ -2,18 +2,46 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Categoria
+ *
+ * @property $id
+ * @property $nombre
+ * @property $slug
+ * @property $img
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property Producto[] $productos
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Categoria extends Model
 {
-    use HasFactory;
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    
+    static $rules = [
+		'nombre' => 'required',
+		'slug' => 'required',
+    ];
 
-  public function productos()
-  {
-    return $this->hasMany(Producto::class);
-  }
+    protected $perPage = 20;
 
-  
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['nombre','slug','img'];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function productos()
+    {
+        return $this->hasMany('App\Models\Producto', 'categoria_id', 'id');
+    } 
+
 }

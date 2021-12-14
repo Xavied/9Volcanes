@@ -36,6 +36,15 @@
     border-radius: 5px;
 }
 
+.breadtop li a {
+    text-decoration: none;
+    color: #1AA179;
+}
+
+.breadtop li a:hover {
+    color: #6C757D;
+}
+
 
 /* fin css breadcrumb*/
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmprendimientoController;
@@ -45,6 +46,12 @@ Route::get('/news', [NewsletterController::class, 'index']);
 //Enviar pagina del newsletter
 Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newsletter');
     
+//Rutas de administracion
+
+Route::resource('categoria/',CategoriaController::class)->middleware('auth');
+Route::resource('categoria',\App\Http\Controllers\CategoriaController::class)->middleware('auth');
+
+
 
 
 
