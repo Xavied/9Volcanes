@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="#">Ver más</a>
+                        <a href="{{route('emprend', $emprendimiento) }}">Ver más</a>
                     </div>
                 </div>
             </div>

@@ -38,8 +38,10 @@ Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+
 //Emprendimientos{
 Route::get('/emprendimientos', [EmprendimientoController::class, 'index'])->name('emprendimientos.index');
+Route::get('/emprendimientos/{marcae:slug}', [EmprendimientoController::class,'unemprend'])->name('emprend');
 
 //CRUD ADMIN
 //{
