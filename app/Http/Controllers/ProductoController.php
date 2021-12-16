@@ -87,9 +87,10 @@ class ProductoController extends Controller
                 // Make a image name based on user name and current timestamp
                 $name = Str::slug($request->input('nuevoNombre')).'_'.time();
                 // Define folder path
-                $folder = 'productos/';
+                $folder = 'storage/productos/';
+                $direction = 'productos/';
                 // Make a file path where image will be stored [ folder path + file name + file extension]
-                $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+                $filePath = $direction . $name. '.' . $image->getClientOriginalExtension();
                 // Upload image
                 $this->uploadOne($image, $folder, 'public', $name);
                 // Set user profile image path in database to filePath
@@ -106,15 +107,32 @@ class ProductoController extends Controller
         return response()->json(['success' => 'Producto Agregado']);
     }
 
+    public function getProductbyID ($id)
+    {
+        $producto = Producto::where('id', $id)->first(['id', 'nombre', 'descripcion', 'precio', 'cantidad', 'visible', 'categoria_id', 'marca_id']);
+
+        return $producto->toJson();
+    }
+
     public function update(Request $request)
     {
         $producto = Producto::find($request->idEditarProducto);
         $producto->nombre = $request->editarNombre;
-        $producto->slug = $request->editarSlug;
+        $producto->slug = $request->editarNombre;
         $producto->descripcion = $request->editarDescripcion;
         $producto->precio = $request->editarPrecio;
         $producto->cantidad = $request->editarCantidad;
-        $producto->visible = $request->editarVisible;
+        if(isset($request->editarVisible))
+        {
+            $producto->visible = $request->editarVisible;
+        }
+        else
+        {
+            $producto->visible = 0;
+        }
+        
+        $producto->categoria_id = $request->editarCategoria_id;
+        $producto->marca_id = $request->editarMarca_id;
         $producto->save();
 
         return response()->json(['success' => 'Producto Editado']);

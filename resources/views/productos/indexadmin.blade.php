@@ -21,7 +21,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th colspan="2">&nbsp;</th>
+                                <th colspan="3">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,15 +29,26 @@
                                 <tr>
                                     <td>{{$producto->id}}</td>
                                     <td>{{$producto->nombre}}</td>
-                                    <td>
-                                        <a href="" class="btn btn-outline-primary btn-sm">
-                                            Editar
-                                        </a>
+                                    <td>    
+                                        <form name="formPoblarProducto" enctype="multipart/form-data" role="form">
+                                            <input type="hidden" value="{{$producto->id}}" name="idPoblarProducto">
+                                            <button type="submit" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProducto">
+                                                Editar
+                                            </button>                                            
+                                        </form>                                        
+                                    </td>
+                                    <td>    
+                                        <form name="formPoblarProducto" enctype="multipart/form-data" role="form">
+                                            <input type="hidden" value="{{$producto->id}}" name="idPoblarProducto">
+                                            <button type="submit" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProducto">
+                                                Editar imagenes
+                                            </button>                                            
+                                        </form>                                        
                                     </td>
                                     <td>
-                                        <form id="formDestroyProducto" enctype="multipart/form-data" role="form">
+                                        <form name="formDestroyProducto" enctype="multipart/form-data" role="form">
                                             @method('DELETE')
-                                            <input type="hidden" value="{{$producto->id}}" id="idEliminarProducto" name="idEliminarProducto">
+                                            <input type="hidden" value="{{$producto->id}}" name="idEliminarProducto">
                                             <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>                                            
                                         </form>
                                     </td>

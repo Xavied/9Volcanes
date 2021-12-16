@@ -32,6 +32,7 @@ Route::get('prods', [ProductoController::class, 'index']);
 Route::post('/prods/store', [ProductoController::class,'store'])->name('storeProductos'); 
 Route::put('/prods/update', [ProductoController::class,'update'])->name('updateTProductos');
 Route::delete('/prods/delete', [ProductoController::class,'destroy'])->name('deleteProductos');
+Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID'])->name('getProducto');
 
 
 
