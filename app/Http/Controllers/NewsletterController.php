@@ -4,9 +4,31 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\Clientes; //Cambiar por correos *solo utilizamos para la prueba de extracci'on de correos
+use App\Models\Correos;
+use Illuminate\Validation\Rules\Unique;
 
 class NewsletterController extends Controller
 {
+
+    public function suscribir(Request $request)
+    {
+        $validar=$request->validate([
+            "correo"=>['required','unique:correos,correo'],//unique en la tabla correos en el campo correo
+        ],
+        [
+            'required'=> ':attribute es requerido',
+            'unique'=> 'Este :attribute: ['. "$request->correo" .'] ya está suscrito a nuestras promociones '
+        ]);
+
+        if($validar==true)
+        {
+            $datos=$request->except('_token');
+            Correos::insert($datos);
+
+        }        
+        return back()->with('mensaje', 'Gracias por suscribirte');
+
+    }
     public function index()
     {
         return \view('NewsLe/indexnews');
@@ -19,7 +41,8 @@ class NewsletterController extends Controller
         $arraycorreos=null;
         //iniciamos un contador para guardar los correos
         $i=0;  
-        $correos =  Clientes::select('correo')->where('subscrito',true)->get();//extraemos los correos
+        $correos =  Correos::select('correo')->get();//extraemos los correos suscritos
+
         if($correos!=null) //si el correo es distinto de null
         {
                 foreach ($correos as $correo) //extraemos solo la direccion del correo

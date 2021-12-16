@@ -23,10 +23,10 @@ class CreateProductosTable extends Migration
             $table->boolean('visible')->default(true);
             
             $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
             
             $table->unsignedBigInteger('marca_id');
-            $table->foreign('marca_id')->references('id')->on('marcas');
+            $table->foreign('marca_id')->references('id')->on('marcas')->onDelete('cascade');
             
             $table->timestamps();
         });
