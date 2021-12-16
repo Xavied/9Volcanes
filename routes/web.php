@@ -31,7 +31,9 @@ Route::get('/categorias/{categoria:slug}', [ProductoController::class,'categoria
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/emprendimientos', [EmprendimientoController::class, 'index'])->name('emprendimientos.index');
+Route::get('/emprendimientos',  [EmprendimientoController::class, 'index'])->name('productoindex');
+Route::get('/emprendimientos/{marcae:slug}', [EmprendimientoController::class,'unemprend'])->name('emprend');
+
 Route::get('/nosotros', function () {
     return view('nosotros');
 });

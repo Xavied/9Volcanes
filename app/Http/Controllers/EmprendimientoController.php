@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Marca;
+use App\Models\Producto;
 
 class EmprendimientoController extends Controller
 {
@@ -20,6 +21,15 @@ class EmprendimientoController extends Controller
         }
 
         return view('emprendimiento.index', compact('emprendimientos'));
+    }
+
+    public function unemprend(Marca $marcae){
+
+        $productos = Producto::select('*')->where('marca_id','=',$marcae['id'])->with('Imagenes')->latest()->paginate();
+
+        //dd($productos);
+
+        return view('emprendimiento.emprendimientov',compact('marcae', 'productos'));
     }
 
 }
