@@ -37,7 +37,23 @@ Route::delete('/prods/delete', [ProductoController::class,'destroy'])->name('del
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+//Emprendimientos{
 Route::get('/emprendimientos', [EmprendimientoController::class, 'index'])->name('emprendimientos.index');
+
+//CRUD ADMIN
+//{
+//Ruta para ver todos los emprendimientos
+Route::get('/emprends', [EmprendimientoController::class, 'show'])->name('showEmprendimientos');
+//Ruta para guardar el emprendimiento
+Route::post('/emprends/store', [EmprendimientoController::class, 'storage'])->name('storeEmprendimientos');
+//Ruta para borrar un emprendimiento
+Route::post('/emprends/delete', [EmprendimientoController::class, 'destroy'])->name('deleteEmprendimientos');
+//Ruta para actualizar el emprendimiento
+Route::post('/emprends/update', [EmprendimientoController::class, 'update'])->name('updateEmprendimientos');
+
+//}
+//}
+
 Route::get('/nosotros', function () {
     return view('nosotros');
 });
@@ -46,6 +62,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+//NEWSLETTER
+//Ruta de registro al Nesletter
+Route::post('/suscribir', [NewsletterController::class, 'suscribir'])->name('susnews');
 //Ver pagina del newsletter
 Route::get('/news', [NewsletterController::class, 'index']);
 //Enviar pagina del newsletter

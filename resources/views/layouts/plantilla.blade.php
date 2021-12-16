@@ -20,9 +20,17 @@
 </head>
 
 <body>
+     <!--Mensaje de agradecimiento por suscribción-->
+    @if (session('mensaje'))
+    <div  class="alert alert-success alert-dismissible fade show" role="alert">
+        <h3>{{session('mensaje')}}  </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    <!--FIN Mensaje de agradecimiento por suscribción-->
+
     <div class="colorhead">
     </div>
-
     <!--Jumbotron-->
     <div>
         <div class="jumbotron">
@@ -87,32 +95,52 @@
     <div class="container shadow">
         @yield('content')
 
-        <!-- Primer Footer-->
-        <div class="suscribe">
-            <div class="row d-flex align-items-center">
-                <div class="col">
-                    <div class="d-flex">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-envelope sbricon" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                            </svg>
+    <!-- Primer Footer-->
+        <!--Validación del Formulario-->
+        @if($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    @endforeach
+                </ul>
+            </div>
+            
+        @endif
+        <!--FIN Validación del Formulario-->
+        <!-- Formulario de suscribción-->
+        <form action="{{route('susnews')}}" method="POST">
+            @csrf
+            <div class="suscribe">
+                <div class="row d-flex align-items-center">
+                    <div class="col">
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-envelope sbricon" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                </svg>
+                            </div>
+                            <h4>Suscribete para enterarte de las mejores ofertas</h1>
                         </div>
-                        <h4>Suscribete para enterarte de las mejores ofertas</h1>
                     </div>
-                </div>
-                <div class="col d-flex justify-content-end">
-                    <div class="container m-1">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Ingresa tu dirección de correo "
-                                aria-label="Ingresa tu correo" aria-describedby="button-addon2">
-                            <button class="btn btn-secondary" type="submit">Registrar</button>
-                        </div>
-                    </div>
+                    
+                        <div class="col d-flex justify-content-end">
+                            <div class="container m-1">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id='correo' name='correo' placeholder="Ingresa tu dirección de correo "
+                                        aria-label="Ingresa tu correo" aria-describedby="button-addon2">
+                                    <button class="btn btn-secondary" type="submit">Registrar</button>
+                                </div>
+                            </div>
+                        </div>       
                 </div>
             </div>
-        </div>
+        </form>
+        <!-- FIN Formulario de suscribción-->
+        
         <div class="foot">
 
             <div class="row">
