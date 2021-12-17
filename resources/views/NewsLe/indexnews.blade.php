@@ -24,8 +24,6 @@
         </div>
         </form>
     </div>
-
-
 @endsection
 <div>
     <!-- sección news -->
