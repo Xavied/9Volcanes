@@ -28,10 +28,10 @@ Route::get('/productos', [ProductoController::class,'productos'])->name('product
 Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
 Route::get('/categorias/{categoria:slug}', [ProductoController::class,'categoria'])->name('categoria');
 //CRUD Productos
-Route::get('prods', [ProductoController::class, 'index']);
-Route::post('/prods/store', [ProductoController::class,'store'])->name('storeProductos'); 
-Route::put('/prods/update', [ProductoController::class,'update'])->name('updateTProductos');
-Route::delete('/prods/delete', [ProductoController::class,'destroy'])->name('deleteProductos');
+Route::get('prods', [ProductoController::class, 'index'])->middleware('auth');
+Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
+Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');
+Route::delete('/prods/delete', [ProductoController::class,'destroy'])->middleware('auth')->name('deleteProductos');
 
 
 
