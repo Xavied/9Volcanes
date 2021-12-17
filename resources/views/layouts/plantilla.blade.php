@@ -16,6 +16,9 @@
     <link rel="shortcut icon" href="{{ asset('images/tiendaPNG.png') }}">
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     @yield('head')
+    @livewireStyles
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    
 </head>
 
 <body>
@@ -32,26 +35,18 @@
                     </div>
                     <div class="col d-flex justify-content-end">
                         <div class="btn-group">
-                            <a href="" class=" btn link-secondary txtjmb">Iniciar / Registrarse</a>
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            <div>
-                                <a href="" class="btn link-secondary txtjmb">(0 Productos)
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-cart4" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-                                    </svg>
-                                </a>
-                            </div>
+                            <a href="" class=" btn link-secondary txtjmb me-5">Iniciar / Registrarse</a>
+                            @livewire('carrito')  
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+   
     <!--Fin Jumbotron-->
     <!--Menu-->
-    <nav class="navbar navbar-expand-md navbar-light">
+    <nav class="position-relative navbar navbar-expand-md navbar-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -59,7 +54,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto" style="color: black">
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/home">Home</a>
                     </li>
@@ -73,6 +68,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
+                    </li>
+                    <li>
+                      
                     </li>
                 </ul>
             </div>
@@ -170,6 +168,9 @@
     </footer>
     <!-- Fin Footer de la página-->
 
+    <!-- LivewireScripts -->
+    @livewireScripts
+    
     <!-- jQuerys JavaScript -->
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

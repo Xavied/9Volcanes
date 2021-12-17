@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Models\Orden;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,6 +26,25 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule
+        ->call(function () {
+          $hora = now()->subMinute(10);
+          $ordenes = Orden::where('estado', 1)
+            ->whereTime('created_at', '<=', $hora)
+            ->get();
+        
+          foreach ($ordenes as $orden) {
+            $productos = json_decode($orden->contenido);
+            
+            foreach ($productos as $producto) {
+              aumentarCantidad($producto);
+            }
+          
+            $orden->estado = 5;
+            $orden->save();
+          }
+        })
+        ->everyMinute();
     }
 
     /**
