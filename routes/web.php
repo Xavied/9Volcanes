@@ -52,9 +52,11 @@ Route::get('/emprends', [EmprendimientoController::class, 'show'])->name('showEm
 //Ruta para guardar el emprendimiento
 Route::post('/emprends/store', [EmprendimientoController::class, 'storage'])->name('storeEmprendimientos');
 //Ruta para borrar un emprendimiento
-Route::post('/emprends/delete', [EmprendimientoController::class, 'destroy'])->name('deleteEmprendimientos');
+Route::delete('/emprends/delete', [EmprendimientoController::class, 'destroy'])->name('deleteEmprendimientos');
 //Ruta para actualizar el emprendimiento
-Route::post('/emprends/update', [EmprendimientoController::class, 'update'])->name('updateEmprendimientos');
+Route::put('/emprends/update', [EmprendimientoController::class, 'update'])->name('updateEmprendimientos');
+//Ruta para obtener un emprendimiento y hacer el autollenado en update
+Route::get('/empreds/getEmprendimiento/{id}', [EmprendimientoController::class,'getEmprendimientobyID'])->name('getEmprendimiento');
 
 //}
 //}
