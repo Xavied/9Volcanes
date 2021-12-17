@@ -43,43 +43,17 @@
                                     <td>{{$emprendimiento->id}}</td>
                                     <td>{{$emprendimiento->nombre}}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#modalEditmprendimientos{{$emprendimiento->id}}">Actualizar</a>
-                                        <!-- Modal EDITAR -->
-                                        <div class="modal fade" id="modalEditmprendimientos{{$emprendimiento->id}}" tabindex="-1" aria-labelledby="modalEditmprendimientosabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title" id="modalEditmprendimientosabel">Editar Emprendimiento</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                        
-                                                <form action="{{route('updateEmprendimientos')}}" enctype="multipart/form-data" method="POST">
-                                                    @csrf
-                                                        <div class="modal-body">
-                                                            <div class="mb-3">
-                                                                <label for="exampleFormControlInput1" class="form-label">Nuevo Nombre del Emprendimiento</label>
-                                                                <input type="text" class="form-control" id="nuevoNombre" name="nuevoNombre" placeholder="{{$emprendimiento->nombre}}">
-                                                            </div>                
-                                                            <div class="mb-3">
-                                                                <label for="exampleFormControlInput2" class="form-label">Nueva Descripción del Emprendimiento</label>
-                                                                <textarea class="form-control" id="nuevoDescripcion" name="nuevoDescripcion" rows="3" placeholder="{{$emprendimiento->descripcion}}"></textarea>
-                                                            </div>                       
-                                                        </div>
-                                                        <input type="hidden" value="{{$emprendimiento->id}}" id="idEditarEmprendimiento" name="idEditarEmprendimiento">
-                                                        <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" class="btn btn-primary">Guardar</button>
-                                                        </div>
-                                                </form>
-                                        
-                                            </div>
-                                            </div>
-                                        </div>            
+                                        <form name="formPoblarEmprendimiento" enctype="multipart/form-data" role="form">
+                                            <input type="hidden" value="{{$emprendimiento->id}}" name="idPoblarEmprendimiento">
+                                            <button type="submit" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEditarEmprendimiento">
+                                                Editar
+                                            </button>                                            
+                                        </form>           
                                     </td>
                                     <td>
-                                        <form action="{{route('deleteEmprendimientos')}}" enctype="multipart/form-data" method="POST">
-                                            @csrf
-                                            <input type="hidden" value="{{$emprendimiento->id}}" id="idEliminarEmprendimiento" name="idEliminarEmprendimiento">
+                                        <form name="formDestroyEmprendimiento" enctype="multipart/form-data" role="form">
+                                            @method('DELETE')
+                                            <input type="hidden" value="{{$emprendimiento->id}}}" name="idEliminarEmprendimiento">
                                             <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>                                            
                                         </form>
                                     </td>

@@ -23,6 +23,7 @@ class EmprendimientoController extends Controller
         return view('emprendimiento.index', compact('emprendimientos'));
     }
 
+    //CRUD EMPRENDIMIENTOS
     public function show(Request $request)//vista para crear un nuevo emprendimiento
     {
 
@@ -41,6 +42,7 @@ class EmprendimientoController extends Controller
     }
     public function storage(Request $request)//guardamos al nuevo emprendimiento
     {
+        
         //convertimos el nombre del emprendimiento en una ***URL AMIGABLE***
         $slug = Str::slug($request->nuevoNombre, '-');        
         //arreglamos los datos que se van a guardar
@@ -49,39 +51,36 @@ class EmprendimientoController extends Controller
         'descripcion'=>$request->nuevoDescripcion];
         //guardamos todo en la base de datos 
         Marca::insert($datos);
-        return redirect('emprends');
-        //return response()->json(['success' => 'Emprendimiento Agregado']);
+       // return redirect('emprends');
+        return response()->json(['success' => 'Emprendimiento Agregado']);
 
     }
 
     function update(Request $request)//editamos un emprenidmiento
     {
-        //verificamos que exista el id
-        $marca=Marca::findOrFail($request->idEditarEmprendimiento);
-  
-        if($marca!=null)
-        {
-            //definimos el slug
-            $slug = Str::slug($request->nuevoNombre, '-');
-            //definimos los datos a actualizar
-            $datosMarca=['nombre'=>$request->nuevoNombre, 
-            'slug'=>$slug,
-            'descripcion'=>$request->nuevoDescripcion];
+        $marca = Marca::find($request->idEditarEmprendimiento);
+        $marca->nombre = $request->editarNombre;
+        $marca->slug = Str::slug($request->editarNombre, '-');
+        $marca->descripcion = $request->editarDescripcion;
+        $marca->save();
 
-            //guardamos todo en la base segun el id
-            Marca::where('id','=',$request->idEditarEmprendimiento)->update($datosMarca);
-        }
-        return back();
+        return response()->json(['success' => 'Emprendimiento Editado']);
 
     }
+    public function getEmprendimientobyID($id)
+    {
+        $marca = Marca::where('id', $id)->first(['id', 'nombre', 'descripcion']);
+
+        return $marca->toJson();
+    }
+
     public function destroy(Request $request)
     {
-        //Tomamos el id de la marca
-        $id=$request->idEliminarEmprendimiento;
-        //destruimos la marca segun el id proporcionado
-        Marca::destroy($id);
+    
+        Marca::destroy($request->idEliminarEmprendimiento);
         //redireccionamos a la pagina principal de emprendimientos.
-        return back();
+        //return back();
+        return response()->json(['success' => 'Producto Eliminado']);
     }
 
 }
