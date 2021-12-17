@@ -55,8 +55,10 @@ Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newslette
 
 Route::resource('categoria/',CategoriaController::class)->middleware('auth');
 Route::resource('categoria',\App\Http\Controllers\CategoriaController::class)->middleware('auth');
-
-
+Route::post('/categoria/store', [CategoriaController::class,'store'])->middleware('auth')->name('storeCategoria'); 
+Route::put('/categoria/update', [CategoriaController::class,'update'])->middleware('auth')->name('updateCategoria');
+Route::delete('/categoria/delete', [CategoriaController::class,'destroy'])->middleware('auth')->name('deleteCategoria');
+Route::get('/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 
 
 
