@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 /**
  * Class CategoriaController
  * @package App\Http\Controllers
@@ -42,9 +43,10 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Categoria::$rules);
-
-        $categoria = Categoria::create($request->all());
+        $categoria = new Categoria();
+        $categoria->nombre = $request->nuevoNombre;
+        $categoria->slug  = Str::slug( $request->nuevoNombre,'-');
+        $categoria->save();
 
         return response()->json(['success' => 'Categoria Agregada']);
     }
@@ -82,26 +84,33 @@ class CategoriaController extends Controller
      * @param  Categoria $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $categoria)
+    
+    public function update(Request $request)
     {
-        
-        //request()->validate(Categoria::$rules);
-        $datosCategoria = request()->except(['_token','_method']);
-        Categoria::where('id','=',$categoria)->update($datosCategoria);
-        //$categoria->update($request->all());
+        $categoria = Categoria::find($request->idEditarCategoria);
+        $categoria->nombre = $request->editarNombre;
+        $categoria->slug  = Str::slug( $request->editarNombre,'-');
+        $categoria->save();
         
         return response()->json(['success' => 'Categoria Editada']);
     }
-
     /**
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $categoria = Categoria::find($id)->delete();
+        $categoria = Categoria::find($request->idEliminarCategoria)->delete();
+        
 
         return response()->json(['success' => 'Categoria Eliminada']);
     }
+    public function getCategoriabyID ($id)
+    {
+        $categoria = Categoria::where('id', $id)->first(['id', 'nombre']);
+
+        return $categoria->toJson();
+    }
+
 }

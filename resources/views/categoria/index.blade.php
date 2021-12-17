@@ -17,8 +17,8 @@
                                 </span>
 
                                 <div class="float-right">
-                                    <a class="btn btn-primary btn-sm float-right"
-                                        data-placement="left" data-bs-toggle="modal" data-bs-target="#modalNuevoProducto">
+                                    <a class="btn btn-primary btn-sm float-right" data-placement="left"
+                                        data-bs-toggle="modal" data-bs-target="#modalNuevoProducto">
                                         {{ __('Crear') }}
                                     </a>
                                 </div>
@@ -39,34 +39,40 @@
 
                                             <th>Nombre</th>
                                             <th>Slug</th>
-                                            <th>Img</th>
 
-                                            <th></th>
+                                            <th colspan="2">&nbsp;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($categorias as $categoria)
                                             <tr>
-                                                <td>{{ ++$i }}</td>
-
+                                                <td>{{ $categoria->id }}</td>
                                                 <td>{{ $categoria->nombre }}</td>
                                                 <td>{{ $categoria->slug }}</td>
-                                                <td>{{ $categoria->img }}</td>
 
                                                 <td>
-                                                    <form action="{{ route('categoria.destroy', $categoria->id) }}"
-                                                        method="POST">
-                                                        <a class="btn btn-sm btn-outline-primary "
-                                                            href="{{ route('categoria.show', $categoria->id) }}"><i
-                                                                class="fa fa-fw fa-eye"></i> Ver</a>
-                                                        <a class="btn btn-sm btn-outline-success"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditProducto"><i
-                                                                class="fa fa-fw fa-edit"></i> Editar</a>
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-outline-danger btn-sm"><i
-                                                                class="fa fa-fw fa-trash"></i> Eliminar</button>
+
+                                                    <form name="formPoblarCategoria" enctype="multipart/form-data"
+                                                        role="form">
+                                                        <input type="hidden" value="{{ $categoria->id }}"
+                                                            name="idPoblarCategoria">
+                                                        <button type="submit" class="btn btn-sm btn-outline-primary"
+                                                            data-bs-toggle="modal" data-bs-target="#modalEditarCategoria">
+                                                            Editar
+                                                        </button>
                                                     </form>
+                                                </td>
+                                                <td>
+                                                    <form name="formDestroyCategoria" enctype="multipart/form-data"
+                                                        role="form">
+
+                                                        @method('DELETE')
+                                                        <input type="hidden" value="{{ $categoria->id }}"
+                                                            name="idEliminarCategoria">
+                                                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                            Eliminar</button>
+                                                    </form>
+
                                                 </td>
                                             </tr>
                                         @endforeach
