@@ -73,7 +73,7 @@
     </div>
     <!--fin del carousel-->
     <br>
-    <h2 class="text-center txtprom">Promociones</h2>
+    <h2 class="text-center txtprom">Productos más vendidos</h2>
     <br>
     <div class="row gy-3 justify-content-center">
         @foreach ($promociones as $promocion)
@@ -99,7 +99,7 @@
                         <div class="row d-flex align-items-center">
                             <div class="col">
                                 <div class="ms-2">
-                                    <h5 class="card-title">{{ $promocion->nombre }}</h5>
+                                    <h5 class="card-title">{{ $tmpnom }}</h5>
                                     <p class="card-text ">{{ $tmpdescrp }}</p>
                                 </div>                                                               
 
