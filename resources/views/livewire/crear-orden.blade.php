@@ -89,8 +89,8 @@
                     <th>Subtotal</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        @foreach (Cart::content() as $item)
+                    @foreach (Cart::content() as $item)
+                        <tr>
                             <td>
                                 <img src="{{ asset('storage/'.$item->options->image) }}" alt="" style="width: 100px; height: auto; object-fit: cover">
                                 {{ $item->name }}
@@ -104,8 +104,8 @@
                             <td>
                                 {{ $item->price*$item->qty }}
                             </td>
-                        @endforeach
-                    </tr>
+                        </tr>
+                    @endforeach
                     <tr>
                         <td>Envio:</td>
                         <td></td>
