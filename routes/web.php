@@ -1,11 +1,14 @@
 <?php
 
+
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmprendimientoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\OrdenesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +37,6 @@ Route::post('/prods/store', [ProductoController::class,'store'])->middleware('au
 Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');
 Route::delete('/prods/delete', [ProductoController::class,'destroy'])->middleware('auth')->name('deleteProductos');
 Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID'])->middleware('auth')->name('getProducto');
-
-
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -86,6 +87,14 @@ Route::put('/categoria/update', [CategoriaController::class,'update'])->middlewa
 Route::delete('/categoria/delete', [CategoriaController::class,'destroy'])->middleware('auth')->name('deleteCategoria');
 Route::get('/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 
+Route::get('/carrito-de-compras', [CarritoController::class,'show'])->name('carrito-de-compras');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/ordenes',[OrdenesController::class,'index'])->name('ordenes.index');
+    Route::get('/ordenes/crear', [OrdenesController::class, 'create'])->name('ordenes.crear');
+    Route::get('/ordenes/{orden}',[OrdenesController::class,'show'])->name('ordenes.show');
+    Route::get('/ordenes/{orden}/pagar',[OrdenesController::class, 'pagar'])->name('ordenes.pagar');
+});
 
 
 require __DIR__ . '/auth.php';

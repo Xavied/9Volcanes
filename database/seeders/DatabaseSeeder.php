@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategoriaSeeder::class,
             MarcaSeeder::class,
-            ProductoSeeder::class,            
+            ProductoSeeder::class,           
+            ProvinciaSeeder::class, 
           ]);
     }
 }

@@ -17,6 +17,9 @@
     <link rel="shortcut icon" href="{{ asset('images/tiendaPNG.png') }}">
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     @yield('head')
+    @livewireStyles
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    
 </head>
 
 <body>
@@ -41,6 +44,7 @@
                     </div>
                     <div class="col d-flex justify-content-end">
                         <div class="btn-group">
+
                             <a href="/login" class=" btn link-secondary txtjmb">Iniciar / Registrarse</a>
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                             <div>
@@ -52,15 +56,20 @@
                                     </svg>
                                 </a>
                             </div>
+
+                            <a href="" class=" btn link-secondary txtjmb me-5">Iniciar / Registrarse</a>
+                            @livewire('carrito')  
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+   
     <!--Fin Jumbotron-->
     <!--Menu-->
-    <nav class="navbar navbar-expand-md navbar-light">
+    <nav class="position-relative navbar navbar-expand-md navbar-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -68,7 +77,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto" style="color: black">
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/home">Home</a>
                     </li>
@@ -82,6 +91,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
+                    </li>
+                    <li>
+                      
                     </li>
                 </ul>
             </div>
@@ -199,7 +211,11 @@
     </footer>
     <!-- Fin Footer de la página-->
 
+    <!-- LivewireScripts -->
+    @livewireScripts
     
+    <!-- jQuerys JavaScript -->
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
