@@ -58,7 +58,6 @@ Route::delete('/emprends/delete', [EmprendimientoController::class, 'destroy'])-
 Route::put('/emprends/update', [EmprendimientoController::class, 'update'])->name('updateEmprendimientos');
 //Ruta para obtener un emprendimiento y hacer el autollenado en update
 Route::get('/empreds/getEmprendimiento/{id}', [EmprendimientoController::class,'getEmprendimientobyID'])->name('getEmprendimiento');
-
 //}
 //}
 
