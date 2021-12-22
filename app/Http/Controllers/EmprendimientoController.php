@@ -9,7 +9,7 @@ use App\Models\Producto;
 
 class EmprendimientoController extends Controller
 {
-    //Función que retorna todos los elementos de la entidad marca
+    //Función que retorna todos los elementos de la entidad marca y buscador
     public function index(Request $request){
 
         $buscar = $request->get('buscar_emprendimiento');
@@ -18,19 +18,19 @@ class EmprendimientoController extends Controller
             $emprendimientos = Marca::select('*')->get();
         }
         else{
-            $emprendimientos = Marca::select('*')->where('nombre', 'LIKE', '%'.$buscar.'%')->get();
+            $emprendimientos = Marca::select('*')->where('nombre', 'LIKE', '%'.$buscar.'%')->with('Imagenes')->latest()->paginate();
         }
 
         return view('emprendimiento.index', compact('emprendimientos'));
     }
 
+    //Función retorna todos los producros de acuerdo al emprendimiento
     public function unemprend(Marca $marcae){
         $productos = Producto::select('*')->where('marca_id', '=', $marcae['id'])->with('Imagenes')->latest()->paginate();
 
-        //dd($productos);
-
         return view('emprendimiento.emprendimientov', compact('marcae', 'productos'));
     }
+    
     //CRUD EMPRENDIMIENTOS
     public function show(Request $request)//vista para crear un nuevo emprendimiento
     {
