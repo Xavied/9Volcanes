@@ -9,6 +9,7 @@ use App\Http\Controllers\EmprendimientoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\OrdenesController;
+use App\Http\Controllers\ClientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,13 @@ Route::put('/emprends/update', [EmprendimientoController::class, 'update'])->nam
 Route::get('/empreds/getEmprendimiento/{id}', [EmprendimientoController::class,'getEmprendimientobyID'])->name('getEmprendimiento');
 //}
 //}
+
+//CRUD CLIENTE
+Route::get('/clientes', [ClientesController::class, 'index'])->middleware('auth');
+Route::post('/clientes/store', [ClientesController::class,'store'])->middleware('auth')->name('storeCliente');
+Route::put('/clientes/update', [ClientesController::class,'update'])->middleware('auth')->name('updateCliente');
+Route::delete('/clientes/delete', [ClientesController::class,'destroy'])->middleware('auth')->name('deleteCliente');
+Route::get('/clientes/getCliente/{id}', [ClientesController::class,'getClientebyID'])->middleware('auth')->name('getClientes'); 
 
 Route::get('/nosotros', function () {
     return view('nosotros');
