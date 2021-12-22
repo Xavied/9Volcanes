@@ -16,6 +16,9 @@
     <!-- Icono -->
     <link rel="shortcut icon" href="{{ asset('images/tiendaPNG.png') }}">
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    
+    {{-- Boostrap Icons --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     @yield('head')
     @livewireStyles
     <script src="{{ mix('js/app.js') }}" defer></script>
