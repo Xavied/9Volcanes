@@ -98,6 +98,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/ordenes/{orden}',[OrdenesController::class,'show'])->name('ordenes.show');
     Route::get('/ordenes/{orden}/pagar',[OrdenesController::class, 'pagar'])->name('ordenes.pagar');
 });
-
+Route::get('/admin', function () {
+    return view('admin');
+})->middleware(['auth'])->name('admin');
 
 require __DIR__ . '/auth.php';

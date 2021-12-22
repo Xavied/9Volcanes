@@ -57,19 +57,21 @@
                                             <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>                                            
                                         </form>
                                     </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                                 </tr>
+                                @endforeach
+                            </tbody>
 
-                    </table>
+                        </table>
+
+                    </div>
 
                 </div>
 
             </div>
-
         </div>
+        <br>
     </div>
 
-</div>
+
 @include('adminProductos.modalesProductos')
 </x-app-layout>
