@@ -1,4 +1,3 @@
-@extends('NewsLe.news')
 @extends('layouts.plantilla')
 <!-- sección head -->
 @section('head')
@@ -19,15 +18,15 @@
             {{ csrf_field() }}
         <div class="row">
             <div class="form-group col-md-4">
-                <button type="submit" class="btn btn-success">Enviar</button>
+                <button type="submit" class="btn btn-success">Enviar oferta de esta semana!</button>
             </div>
         </div>
         </form>
     </div>
+    <br>
+    <div>
+        @include('NewsLe.news')
+        <!-- Fin sección news -->
+    </div>
+    <br>
 @endsection
-<div>
-    <!-- sección news -->
-    @section('news')
-    @endsection
-    <!-- Fin sección news -->
-</div>

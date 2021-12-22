@@ -1,9 +1,5 @@
-@extends('layouts/plantilla')
-
-
-@section('content')
-
-<div class="container">
+<x-app-layout>
+<div>
     <br>
     <div class="row justify-content center">
         <div class="col">
@@ -14,7 +10,7 @@
                 <div class="col-md-8 col-sm-12">
                     <form id="searchForm" class="form-inline">
                         <div class="input-group mb-3">
-                            <input id="buscar_producto" name="buscar_producto" type="text" class="form-control" placeholder="Buscar productos por nombre..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input id="buscar_producto" name="buscar_producto" type="text" class="form-control" placeholder="Buscar producto por nombre..." aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-secondary" type="submit" id="button-addon2">Buscar</button>                            
                         </div>      
                     </form>
@@ -61,20 +57,21 @@
                                             <button type="submit" class="btn btn-sm btn-outline-danger">Eliminar</button>                                            
                                         </form>
                                     </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                                 </tr>
+                                @endforeach
+                            </tbody>
 
-                    </table>
+                        </table>
+
+                    </div>
 
                 </div>
 
             </div>
-
         </div>
+        <br>
     </div>
-    <br>
-</div>
+
 
 @include('adminProductos.modalesProductos')
-@endsection
+</x-app-layout>
