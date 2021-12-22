@@ -1,12 +1,38 @@
 $( document ).ready(function() {
     
+    // función para errores
+    function error(data, formData){
+        if( data.status === 422 ) {
+            var errors = $.parseJSON(data.responseText);
+            $.each(errors, function (key, value) {
+                if($.isPlainObject(value)) {
+                    $.each(value, function (key, value2) {
+                        $('#error-'+key).empty();
+                        $('#'+key).removeClass("is-invalid");
+                        $('#error-'+key).append(value2);
+                        $('#'+key).addClass("is-invalid");
+                    });
+                }
+            });
+        }        
+    }
+
+    function limpiarForm(formData) {
+        for (let pair of formData.entries()) {
+            $('#error-'+pair[0]).empty();
+            if ($('#'+pair[0]).is('.is-invalid')){
+                $('#'+pair[0]).toggleClass("is-invalid");
+            }
+        }
+    }
     
-    function nuevo(ruta,formulario){
+    function nuevoConMultiplesArchivos(ruta,formulario){
         let form = formulario;
         let formData = new FormData(form);
         $.each($("input[type='file']")[0].files, function(i, file) {
             formData.append('imagen_' + i, file);
         });
+        limpiarForm(formData);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -35,12 +61,13 @@ $( document ).ready(function() {
                   })                
             },
             error :function( data ) {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Do you want to continue',
-                    icon: 'error',
-                    confirmButtonText: 'Cool'
-                })
+                // Swal.fire({
+                //     title: 'Error!',
+                //     text: '¿Desea continuar?',
+                //     icon: 'error',
+                //     confirmButtonText: 'Cool'
+                // })
+                error(data, formData);
             },
         });
     }
@@ -49,7 +76,7 @@ $( document ).ready(function() {
         event.preventDefault();
         let ruta = "/prods/store";
         let formulario = this;
-        nuevo(ruta,formulario);
+        nuevoConMultiplesArchivos(ruta,formulario);
     });
 
     function seleccionarElemento(elemento, valor){
@@ -120,7 +147,7 @@ $( document ).ready(function() {
     function editar(ruta,formulario){
         let form = formulario;
         let formData = new FormData(form);
-        
+        limpiarForm(formData);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -149,12 +176,13 @@ $( document ).ready(function() {
                   })                
             },
             error :function( data ) {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Do you want to continue',
-                    icon: 'error',
-                    confirmButtonText: 'Cool'
-                })
+                // Swal.fire({
+                //     title: 'Error!',
+                //     text: 'Do you want to continue',
+                //     icon: 'error',
+                //     confirmButtonText: 'Cool'
+                // })
+                error(data, formData);
             },
         });
     }
@@ -224,5 +252,32 @@ $( document ).ready(function() {
                 eliminar(ruta, formulario);
             }
           })
+    });
+    // ---------- ELIMINAR IMAGEN----------
+    $("form[name='formDestroyImagen']").on('submit',function(event){
+        event.preventDefault();
+        let ruta = "/prods/eliminarImagen";
+        let formulario = this;
+        Swal.fire({
+            title: '¿Está seguro de que quiere eliminar esta imagen?',
+            text: "No podrá revertir esta acción",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                eliminar(ruta, formulario);
+            }
+          })
+    });
+
+    // ---------- AÑADIR IMAGEN----------
+    $('#formStoreImagenes').on('submit',function(event){
+        event.preventDefault();
+        let ruta = "/prods/agregarImagenes";
+        let formulario = this;
+        nuevoConMultiplesArchivos(ruta,formulario);
     });
 });

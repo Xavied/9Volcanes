@@ -22,14 +22,14 @@
                         <a href="{{route('categoria', $categorialista) }}" class="list-group-item list-group-item-action list-group-item-success" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
                                 <h6 class="mb-1">{{$categorialista->nombre}}</h6>
-                                <small><span class="badge bg-success rounded-pill">{{$categorialista->productos->count()}}</span></small>                        
+                                <small><span class="badge bg-success rounded-pill">{{$categorialista->productos->where('visible', True)->count()}}</span></small>                        
                             </div>
                         </a>  
                     @else
                         <a href="{{route('categoria', $categorialista) }}" class="list-group-item list-group-item-action" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
                                 <h6 class="mb-1">{{$categorialista->nombre}}</h6>
-                                <small><span class="badge bg-success rounded-pill">{{$categorialista->productos->count()}}</span></small>                        
+                                <small><span class="badge bg-success rounded-pill">{{$categorialista->productos->where('visible', True)->count()}}</span></small>                        
                             </div>
                         </a>                        
                     @endif                    
@@ -47,7 +47,7 @@
                     <h5>Categoría   {{$categoria->nombre}}</h5>
                 </div>
                 <div class="col-auto">                    
-                    <p class="text-secondary">Hay {{$categoria->productos->count()}} productos</p>
+                    <p class="text-secondary">Hay {{$categoria->productos->where('visible', True)->count()}} producto(s)</p>
                 </div>
             </div>
             <br>
@@ -57,17 +57,19 @@
             <div class="container">
                 <div class="row gy-3 justify-content-center">
                     @foreach ($categoria->productos as $producto)
-                        <div class="col-md-4 col-sm-12">            
-                            <div class="card text-center shadow" style="width: 100%;">    
-                                <img src="{{url('/storage').'/'.$producto->Imagenes->first()->url}}" class="card-img-top" alt="...">   
-                                                                
-                                <div class="card-body">
-                                <h6 class="card-title">{{ $producto->get_nombre}}</h6>
-                                <p class="card-text">${{ $producto->precio }}</p>
-                                <a href="{{route('producto', $producto) }}" class="btn btn-success">Ver Producto</a>
+                        @if ($producto->visible == True)
+                            <div class="col-md-4 col-sm-12">            
+                                <div class="card text-center shadow" style="width: 100%;">    
+                                    <img src="{{url('/storage').'/'.$producto->Imagenes->first()->url}}" class="card-img-top" alt="...">   
+                                                                    
+                                    <div class="card-body">
+                                    <h6 class="card-title">{{ $producto->get_nombre}}</h6>
+                                    <p class="card-text">${{ $producto->precio }}</p>
+                                    <a href="{{route('producto', $producto) }}" class="btn btn-success">Ver Producto</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif 
                     @endforeach                    
                     <div class="container">
                         <br><br>
