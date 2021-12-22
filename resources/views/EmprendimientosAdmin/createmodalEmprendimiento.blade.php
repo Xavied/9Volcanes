@@ -1,4 +1,3 @@
- 
   <!-- Modal Crear Emprendimiento -->
 <div class="modal fade" id="modalNuevoEmprendimientos" tabindex="-1" aria-labelledby="modalNuevoEmprendimientoabel" aria-hidden="true">
     <div class="modal-dialog">

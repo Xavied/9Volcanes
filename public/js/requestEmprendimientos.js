@@ -33,13 +33,28 @@ $(document).ready(function() {
                     }
                 })
             },
-            error: function(data) {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Algo salio mal :(',
-                    icon: 'error',
-                    confirmButtonText: 'Continuar'
-                })
+            error: function(response) {
+                    var name=$('#nuevoNombre').val();
+                    var mensaje="";
+                    if(name === "")
+                    {
+                       mensaje='Ingresa un nombre para el emprendimiento'
+                    }
+                    else if(name.length>45)
+                    {
+                        mensaje='El nombre del emprendimiento es demasiado largo'
+                    }
+                    else
+                    {
+                        mensaje = 'El nombre del emprendimiento ya existe'
+                    }
+                    
+                    Swal.fire({
+                        title: 'Error!',
+                        text: mensaje,
+                        icon: 'error',
+                        confirmButtonText: 'Continuar'
+                    })              
             },
         });
     }
@@ -74,6 +89,7 @@ $(document).ready(function() {
                 $( "#editarDescripcion" ).val(myObj.descripcion);                  
             },
             error: function(data) {
+                editarNombre
                 Swal.fire({
                     title: 'Error!',
                     text: 'Algo salio mal :(',
@@ -123,13 +139,28 @@ $(document).ready(function() {
                     }
                   })                
             },
-            error :function( data ) {
+            error :function( ) {
+                var name=$('#editarNombre').val();
+                var mensaje="";
+                if(name === "")
+                {
+                   mensaje='Debes ingresar un NOMBRE para el emprendimiento'
+                }
+                else if(name.length>45)
+                {
+                    mensaje='El NOMBRE del emprendimiento es demasiado largo'
+                }
+                else
+                {
+                    mensaje = 'El nombre del emprendimiento ya existe'
+                }
+                
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Algo no salio bien >:c',
+                    text: mensaje,
                     icon: 'error',
-                    confirmButtonText: 'Ok'
-                })
+                    confirmButtonText: 'Continuar'
+                }) 
             },
         });
     }
