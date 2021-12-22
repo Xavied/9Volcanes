@@ -13,6 +13,22 @@
 <!-- Fin sección menú -->
 
 @section('content')
+
+<br>
+    <!--Breadcrumb página Emprendimientos/Emprendimiento-->
+    <div class="breadtop">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="/home">Home</a></li>
+                <li class="breadcrumb-item active"><a href="/emprendimientos">Emprendimientos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$marcae->nombre}}</li>
+            </ol>
+        </nav>
+
+    </div>
+    <!-- Fin Breadcrumb Emprendimientos/Emprendimiento-->
+    <br>
+
 <!-- Productos -->
 <br>
 <div class="container">

@@ -21,6 +21,7 @@ class CreateClientesTable extends Migration
             $table->integer('telefono');
             $table->string('correo')->unique();
             $table->boolean('subscrito')->default(false);
+            $table->timestamps();
         });
     }
 
