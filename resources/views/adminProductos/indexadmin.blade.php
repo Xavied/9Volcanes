@@ -14,7 +14,7 @@
                 <div class="col-md-8 col-sm-12">
                     <form id="searchForm" class="form-inline">
                         <div class="input-group mb-3">
-                            <input id="buscar_producto" name="buscar_producto" type="text" class="form-control" placeholder="Buscar productos por nombre..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input id="buscar_producto" name="buscar_producto" type="text" class="form-control" placeholder="Buscar producto por nombre..." aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-secondary" type="submit" id="button-addon2">Buscar</button>                            
                         </div>      
                     </form>
