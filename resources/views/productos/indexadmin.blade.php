@@ -1,9 +1,5 @@
-@extends('layouts/plantilla')
-
-
-@section('content')
-
-<div class="container">
+<x-app-layout>
+<div>
     <br>
     <div class="row justify-content center">
         <div class="col">
@@ -73,8 +69,7 @@
 
         </div>
     </div>
-    <br>
-</div>
 
+</div>
 @include('adminProductos.modalesProductos')
-@endsection
+</x-app-layout>
