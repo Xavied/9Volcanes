@@ -48,6 +48,6 @@
         </tbody>
     </table>
     <div class="text-center mb-3">
-        <button class="btn btn-warning">Pagar con tarjeta de credito/debito</button>
+        <button class="btn btn-warning" wire:click="pagar()">Pagar con tarjeta de credito/debito</button>
     </div>
 </div>

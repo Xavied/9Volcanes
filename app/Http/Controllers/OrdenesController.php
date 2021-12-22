@@ -48,11 +48,15 @@ class OrdenesController extends Controller
     }
     
     public function show(Orden $orden){
+        $this->authorize('show', $orden);
+        
         $productos = json_decode($orden->contenido);
         return view('ordenes.show',compact(['orden','productos']));
     }
     
     public function pagar(Orden $orden){
+        $this->authorize('show',$orden);
+        $this->authorize('pendiente',$orden);
         
         return view('ordenes.pagar-orden',compact(['orden']));
     }

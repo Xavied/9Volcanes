@@ -32,6 +32,34 @@
         @case(2) Pagado @break @case(3) Enviado @break @case(4)
         Entregado @break @case(5) Anulado @break @default
         @endswitch)</h4>
+        <div class="d-flex justify-content-around align-items-center mx-3">
+            <div class="card  mb-3 {{ $orden->estado >= 2 && $orden->estado != 5 ? 'bg-dark text-white' : 'bg-light' }}">
+                <div class="card-header">Pagado</div>
+                <div class="card-body text-center">
+                    <h1 class="card-title">
+                        <i class="bi bi-box-seam"></i>
+                    </h1>
+                </div>
+            </div>
+            <div class="{{ $orden->estado >= 3 && $orden->estado != 5 ? 'bg-dark' : 'bg-light' }}" style="flex: 1 1 0%; height: 10px;"></div>
+            <div class="card  mb-3 {{ $orden->estado >= 3 && $orden->estado != 5 ? 'bg-dark text-white' : 'bg-light' }}">
+                <div class="card-header">Enviado</div>
+                <div class="card-body text-center">
+                    <h1 class="card-title">
+                        <i class="bi bi-truck"></i>
+                    </h1>
+                </div>
+            </div>
+            <div class="{{ $orden->estado >= 4 && $orden->estado != 5 ? 'bg-dark' : 'bg-light' }}" style="flex: 1 1 0%; height: 10px;"></div>
+            <div class="card  mb-3 {{ $orden->estado >= 4 && $orden->estado != 5 ? 'bg-dark text-white' : 'bg-light' }}">
+                <div class="card-header">Recibido</div>
+                <div class="card-body text-center">
+                    <h1 class="card-title">
+                        <i class="bi bi-house-door"></i>
+                    </h1>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm">
                 <h4>Datos de envío:</h4>
