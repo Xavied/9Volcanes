@@ -19,16 +19,16 @@
     @yield('head')
     @livewireStyles
     <script src="{{ mix('js/app.js') }}" defer></script>
-    
+
 </head>
 
 <body>
-     <!--Mensaje de agradecimiento por suscribción-->
+    <!--Mensaje de agradecimiento por suscribción-->
     @if (session('mensaje'))
-    <div  class="alert alert-success alert-dismissible fade show" role="alert">
-        <h3>{{session('mensaje')}}  </h3>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h3>{{ session('mensaje') }} </h3>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     @endif
     <!--FIN Mensaje de agradecimiento por suscribción-->
 
@@ -44,9 +44,20 @@
                     </div>
                     <div class="col d-flex justify-content-end">
                         <div class="btn-group">
-
-                            <a href="/login" class=" btn link-secondary txtjmb me-5">Iniciar / Registrarse</a>
-                            @livewire('carrito')  
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="btn link-secondary txtjmb me-5">Administrar</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn link-secondary txtjmb ">Iniciar</a>
+                                    <a class="btn link-secondary txtjmb ">/</a>
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}"
+                                            class="btn link-secondary txtjmb ms-0 me-5">Registrarse</a>
+                                    @endif
+                                @endauth
+                            @endif
+                            <!--<a href="/login" class=" btn link-secondary txtjmb me-5">Iniciar / Registrarse</a>-->
+                            @livewire('carrito')
 
                         </div>
                     </div>
@@ -54,7 +65,7 @@
             </div>
         </div>
     </div>
-   
+
     <!--Fin Jumbotron-->
     <!--Menu-->
     <nav class="position-relative navbar navbar-expand-md navbar-light">
@@ -81,7 +92,7 @@
                         <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
                     </li>
                     <li>
-                      
+
                     </li>
                 </ul>
             </div>
@@ -95,22 +106,23 @@
     <div class="container shadow">
         @yield('content')
 
-    <!-- Primer Footer-->
+        <!-- Primer Footer-->
         <!--Validación del Formulario-->
-        @if($errors->any())
+        @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{$error}}</li>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <li>{{ $error }}</li>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="Close"></button>
                     @endforeach
                 </ul>
             </div>
-            
+
         @endif
         <!--FIN Validación del Formulario-->
         <!-- Formulario de suscribción-->
-        <form action="{{route('susnews')}}" method="POST">
+        <form action="{{ route('susnews') }}" method="POST">
             @csrf
             <div class="suscribe">
                 <div class="row d-flex align-items-center">
@@ -126,21 +138,22 @@
                             <h4>Suscribete para enterarte de las mejores ofertas</h1>
                         </div>
                     </div>
-                    
-                        <div class="col d-flex justify-content-end">
-                            <div class="container m-1">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id='correo' name='correo' placeholder="Ingresa tu dirección de correo "
-                                        aria-label="Ingresa tu correo" aria-describedby="button-addon2">
-                                    <button class="btn btn-secondary" type="submit">Registrar</button>
-                                </div>
+
+                    <div class="col d-flex justify-content-end">
+                        <div class="container m-1">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id='correo' name='correo'
+                                    placeholder="Ingresa tu dirección de correo " aria-label="Ingresa tu correo"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-secondary" type="submit">Registrar</button>
                             </div>
-                        </div>       
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
         <!-- FIN Formulario de suscribción-->
-        
+
         <div class="foot">
 
             <div class="row">
@@ -201,7 +214,7 @@
 
     <!-- LivewireScripts -->
     @livewireScripts
-    
+
     <!-- jQuerys JavaScript -->
 
     <!-- Bootstrap Bundle with Popper -->
@@ -213,10 +226,11 @@
     </script>
     <!-- jQuerys JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/requests.js') }}"></script>
     <script src="{{ asset('js/requestEmprendimientos.js') }}"></script>
-    <script src="{{ asset('js/requestsCategoria.js')}}"></script>
+    <script src="{{ asset('js/requestsCategoria.js') }}"></script>
     <!--Fin jQuerys-->
 </body>
 
