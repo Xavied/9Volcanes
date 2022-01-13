@@ -15,42 +15,54 @@ class MarcaSeeder extends Seeder
      */
     public function run()
     {
-        //
-        Marca::create([
-            'nombre' => 'Vita',
-            'slug' => Str::slug('Vita'),
-          ]);
-        Marca::create([
-            'nombre' => 'Parmalat',
-            'slug' => Str::slug('Parmalat'),
-          ]);
-        Marca::create([
-            'nombre' => 'Oreo',
-            'slug' => Str::slug('Oreo'),
-          ]);
-        Marca::create([
-            'nombre' => 'Festival',
-            'slug' => Str::slug('Festival'),
-          ]);
-        Marca::create([
-            'nombre' => 'Coca Cola',
-            'slug' => Str::slug('Coca Cola'),
-          ]);
-        Marca::create([
-            'nombre' => 'Pepsi',
-            'slug' => Str::slug('Pepsi'),
-          ]);
-        Marca::create([
-            'nombre' => 'YA',
-            'slug' => Str::slug('YA'),
-          ]);
-        Marca::create([
-            'nombre' => 'Santa Lucia',
-            'slug' => Str::slug('Santa Lucia'),
-          ]);
-        Marca::create([
-            'nombre' => 'Getilver',
-            'slug' => Str::slug('Getilver'),
-          ]);
+      $descp = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Vestibulum eleifend congue velit non condimentum. Fusce at imperdiet 
+      sem, quis commodo eros. Proin malesuada ex id lectus blandit, ut volutpat augue.';
+      //
+      Marca::create([
+          'nombre' => 'Pollos Margarita',
+          'slug' => Str::slug('Pollos Margarita'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Tejidos Ancestrales',
+          'slug' => Str::slug('Tejidos Ancestrales'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Harukuna',
+          'slug' => Str::slug('Harukuna'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Abarrotes Festival',
+          'slug' => Str::slug('Abarrotes Festival'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Hortalizas Luchito',
+          'slug' => Str::slug('Hortalizas Luchito'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Doña Amanda',
+          'slug' => Str::slug('Doña Amanda'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Casalac',
+          'slug' => Str::slug('Casalac'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Santa Lucia',
+          'slug' => Str::slug('Santa Lucia'),
+          'descripcion' => $descp,
+        ]);
+      Marca::create([
+          'nombre' => 'Accesorios Gero',
+          'slug' => Str::slug('Accesorios Gero'),
+          'descripcion' => $descp,
+        ]);
     }
 }

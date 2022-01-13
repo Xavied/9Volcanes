@@ -35,6 +35,10 @@
     <br>
     <h1>{{$marcae->nombre}}</h1>
     <br>
+    <div>{{$marcae->descripcion}}</div>
+    <br>
+    <h2>Productos</h2>
+    <br>
     <div class="row gy-3 justify-content-center">
         @foreach ($productos as $producto)
             <div class="col-md-4 col-sm-12">            
