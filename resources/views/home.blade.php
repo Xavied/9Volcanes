@@ -91,10 +91,13 @@
             ?>
             <div class="col-md-4 ">
                 <div class="contenPrd">
-                    <a href="{{ route('producto', $promocion) }}">
-                    <img src="{{ url('/storage') . '/' . $promocion->Imagenes->first()->url }}" class="card-img-top"
-                        alt="...">
-                    </a>
+                    <div>
+                        <a href="{{ route('producto', $promocion) }}">
+                            <img src="{{ url('/storage') . '/' . $promocion->Imagenes->first()->url }}" class="card-img-top"
+                                alt="...">
+                            </a>
+                    </div>
+                   
                     <div class="txtproducto">
                         <div class="row d-flex align-items-center">
                             <div class="col">
