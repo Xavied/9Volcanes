@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             MarcaSeeder::class,
             ProductoSeeder::class,           
             ProvinciaSeeder::class, 
+            ImagenesSeeder::class,
           ]);
     }
 }
