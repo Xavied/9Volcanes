@@ -22,11 +22,11 @@ use App\Http\Controllers\ClientesController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 //Productos
 Route::get('/productos', [ProductoController::class,'productos'])->name('productos');
 Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
@@ -76,9 +76,7 @@ Route::get('/nosotros', function () {
     return view('nosotros');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 //NEWSLETTER
 //Ruta de registro al Nesletter
@@ -90,13 +88,9 @@ Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newslette
     
 //Rutas de administracion
 
-Route::resource('categoria/',CategoriaController::class)->middleware('auth');
-Route::resource('categoria',\App\Http\Controllers\CategoriaController::class)->middleware('auth');
-Route::post('/categoria/store', [CategoriaController::class,'store'])->middleware('auth')->name('storeCategoria'); 
-Route::put('/categoria/update', [CategoriaController::class,'update'])->middleware('auth')->name('updateCategoria');
-Route::delete('/categoria/delete', [CategoriaController::class,'destroy'])->middleware('auth')->name('deleteCategoria');
-Route::get('/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 
+
+/*Compras */
 Route::get('/carrito-de-compras', [CarritoController::class,'show'])->name('carrito-de-compras');
 
 Route::middleware(['auth'])->group(function(){

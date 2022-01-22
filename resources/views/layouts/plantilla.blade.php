@@ -16,7 +16,7 @@
     <!-- Icono -->
     <link rel="shortcut icon" href="{{ asset('images/tiendaPNG.png') }}">
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-    
+
     {{-- Boostrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     @yield('head')
@@ -49,13 +49,21 @@
                         <div class="btn-group">
                             @if (Route::has('login'))
                                 @auth
-                                    <a href="{{ url('/dashboard') }}" class="btn link-secondary txtjmb me-5">Administrar</a>
+                                    @role('Administrador')
+                                        <a href="{{ route('dashboard') }}" class="btn btn-outline-success txtjmb" style="">Bienvenido</a>
+                                        <a class="btn link-secondary txtjmb ">/</a>                                      
+                                    @endrole
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf<a class="btn btn-outline-danger txtjmb ms-0 me-5" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); this.closest('form').submit();">
+                                            {{ __('Cerrar Sesión') }}</a>
+                                    </form>
                                 @else
-                                    <a href="{{ route('login') }}" class="btn link-secondary txtjmb ">Iniciar</a>
+                                    <a href="{{ route('login') }}" class="btn btn-outline-secondary txtjmb ">Iniciar</a>
                                     <a class="btn link-secondary txtjmb ">/</a>
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}"
-                                            class="btn link-secondary txtjmb ms-0 me-5">Registrarse</a>
+                                            class="btn btn-outline-secondary txtjmb ms-0 me-5">Registrarse</a>
                                     @endif
                                 @endauth
                             @endif

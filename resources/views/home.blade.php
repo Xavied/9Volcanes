@@ -36,15 +36,15 @@
                 aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner carouseltmn">
-            @foreach ($productos as $producto)
+            @foreach ($promoscrl as $promocrl)
                 <?php
-                $id = $producto->id;
-                if ($id == 1) {
-                    $img1 = $producto->Imagenes->first()->url;
-                } elseif ($id == 2) {
-                    $img2 = $producto->Imagenes->first()->url;
-                } elseif ($id == 3) {
-                    $img3 = $producto->Imagenes->first()->url;
+                $id = $promocrl->id;
+                if ($id == $info['id0']) {
+                    $img1 = $promocrl->Imagenes->first()->url;
+                } elseif ($id == $info['id1']) {
+                    $img2 = $promocrl->Imagenes->first()->url;
+                } elseif ($id == $info['id2']) {
+                    $img3 = $promocrl->Imagenes->first()->url;
                     break;
                 }
                 ?>
