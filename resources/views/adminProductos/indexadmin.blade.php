@@ -48,7 +48,7 @@
                                         </form>                                        
                                     </td>
                                     <td>    
-                                        <a href="{{route('editarImagenes', $producto) }}" class="btn btn-sm btn-outline-primary">Editar Imágenes</a>                                        
+                                        <a href="{{route('admin.editarImagenes', $producto) }}" class="btn btn-sm btn-outline-primary">Editar Imágenes</a>                                        
                                     </td>
                                     <td>
                                         <form name="formDestroyProducto" enctype="multipart/form-data" role="form">

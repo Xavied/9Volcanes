@@ -7,7 +7,7 @@
 <div class="breadtop">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active"><a href="/prods">Editar Productos</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('admin.adminProductos')}}">Editar Productos</a></li>
             <li class="breadcrumb-item active" aria-current="page">Editar imágenes de {{$producto->nombre}}</li>
         </ol>
     </nav>
