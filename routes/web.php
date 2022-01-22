@@ -33,14 +33,14 @@ Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto']
 Route::get('/categorias/{categoria:slug}', [ProductoController::class,'categoria'])->name('categoria');
 
 //CRUD Productos
-Route::get('prods', [ProductoController::class, 'index'])->middleware('auth');
-Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
-Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');
-Route::delete('/prods/delete', [ProductoController::class,'destroy'])->middleware('auth')->name('deleteProductos');
-Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID'])->middleware('auth')->name('getProducto');
-Route::get('/prods/editarImagenes/{producto:slug}', [ProductoController::class,'editarImagenes'])->middleware('auth')->name('editarImagenes');
-Route::delete('/prods/eliminarImagen', [ProductoController::class,'eliminarImagen'])->middleware('auth')->name('eliminarImagen');
-Route::post('/prods/agregarImagenes', [ProductoController::class,'agregarImagenes'])->middleware('auth')->name('agregarImagenes'); 
+// Route::get('prods', [ProductoController::class, 'index'])->middleware('auth')->name('adminProductos');
+// Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
+// Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');
+// Route::delete('/prods/delete', [ProductoController::class,'destroy'])->middleware('auth')->name('deleteProductos');
+// Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID'])->middleware('auth')->name('getProducto');
+// Route::get('/prods/editarImagenes/{producto:slug}', [ProductoController::class,'editarImagenes'])->middleware('auth')->name('editarImagenes');
+// Route::delete('/prods/eliminarImagen', [ProductoController::class,'eliminarImagen'])->middleware('auth')->name('eliminarImagen');
+// Route::post('/prods/agregarImagenes', [ProductoController::class,'agregarImagenes'])->middleware('auth')->name('agregarImagenes'); 
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
