@@ -26,6 +26,9 @@
 </head>
 
 <body>
+  <div class="rounded-circle position-fixed bottom-0 start-0 m-3" style="z-index: 9999999;">
+    <a target="_blank" class="rounded-circle" href="https://web.whatsapp.com/send?phone=5930986097821&text=Hola-tengo-una-duda-jeje"><img class="rounded-circle" style="height: 65px; width: 65px" src="{{ asset('images/whatsapp.png') }}" alt=""></a>
+  </div>
     <!--Mensaje de agradecimiento por suscribción-->
     @if (session('mensaje'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -221,6 +224,7 @@
             </div>
         </div>
     </footer>
+    
     <!-- Fin Footer de la página-->
 
     <!-- LivewireScripts -->
