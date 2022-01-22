@@ -51,12 +51,20 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria = new Categoria();
-        $categoria->nombre = $request->nuevoNombre;
-        $categoria->slug  = Str::slug( $request->nuevoNombre,'-');
-        $categoria->save();
+        //VALIDAMOS LOS DATOS QUE LLEGAN
+        $validar=$request->validate([
+            "nuevoNombre"=>['required','unique:categorias,nombre', 'max:45'],//unique en la tabla marcas en el campo nombre
+        ]);
+        
+        if($validar==true)
+        {
+            $categoria = new Categoria();
+            $categoria->nombre = $request->nuevoNombre;
+            $categoria->slug  = Str::slug( $request->nuevoNombre,'-');
+            $categoria->save();
 
-        return response()->json(['success' => 'Categoria Agregada']);
+            return response()->json(['success' => 'Categoria Agregada']);
+        }
     }
 
     /**
@@ -95,12 +103,43 @@ class CategoriaController extends Controller
     
     public function update(Request $request)
     {
-        $categoria = Categoria::find($request->idEditarCategoria);
-        $categoria->nombre = $request->editarNombre;
-        $categoria->slug  = Str::slug( $request->editarNombre,'-');
-        $categoria->save();
-        
-        return response()->json(['success' => 'Categoria Editada']);
+         //veremos si se esta editando una misma fila en la base de datos
+         $categoriaigual = Categoria::find($request->idEditarCategoria);
+         //verificaremos lo anterior mediante el nombre de la variable
+         $nombreigual=$categoriaigual->nombre;
+         //si el nombre del request es igual al nombre de la fila de la BDD encontrada por medio del ID request
+         if( $nombreigual  == $request->editarNombre)
+         {
+            /*$categoria = Categoria::find($request->idEditarCategoria);
+            $categoria->nombre = $request->editarNombre;
+            $categoria->slug  = Str::slug( $request->editarNombre,'-');
+            $categoria->save();*/
+            //guardamos todo exactamente igual  
+            $categoriaigual->nombre = $request->editarNombre;
+            $categoriaigual->slug = Str::slug($request->editarNombre, '-');
+            $categoriaigual->save();
+            
+            return response()->json(['success' => 'Categoria Editada']);
+         }
+
+          //si el nombre del request no es igual al nombre de la fila de la BDD encontrada por medio del ID request
+        if ($nombreigual  !== $request->editarNombre)
+        {
+            //validamos el formulario nuevo
+            $validar=$request->validate([
+                "editarNombre"=>['required','unique:categorias,nombre', 'max:45'],//unique en la tabla marcas en el campo nombre
+            ]);
+            //guardamos en caso de que el formulario sea valido.
+            if($validar==true)
+            {
+                $categoria = Categoria::find($request->idEditarCategoria);
+                $categoria->nombre = $request->editarNombre;
+                $categoria->slug  = Str::slug( $request->editarNombre,'-');
+                $categoria->save();
+
+                return response()->json(['success' => 'Emprendimiento Editado']);
+            }
+        }
     }
     /**
      * @param int $id
