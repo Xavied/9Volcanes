@@ -33,12 +33,22 @@ $(document).ready(function() {
                     }
                 })
             },
-            error: function(data) {
+            error: function(response) {
+                var name = $('#nuevoNombre').val();
+                var mensaje = "";
+                if (name === "") {
+                    mensaje = 'Ingresa un nombre para la categoria'
+                } else if (name.length > 45) {
+                    mensaje = 'El nombre de la categoria es demasiado largo'
+                } else {
+                    mensaje = 'El nombre de la categoria ya existe'
+                }
+
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Do you want to continue',
+                    text: mensaje,
                     icon: 'error',
-                    confirmButtonText: 'Cool'
+                    confirmButtonText: 'Continuar'
                 })
             },
         });
@@ -46,7 +56,7 @@ $(document).ready(function() {
     // ---------- AÑADIR NUEVA CATEGORIA----------
     $('#formStoreCategoria').on('submit', function(event) {
         event.preventDefault();
-        let ruta = "/categoria/store";
+        let ruta = "admin/categoria/store";
         let formulario = this;
         nuevo(ruta, formulario);
     });
@@ -84,12 +94,22 @@ $(document).ready(function() {
                     }
                 })
             },
-            error: function(data) {
+            error: function() {
+                var name = $('#editarNombre').val();
+                var mensaje = "";
+                if (name === "") {
+                    mensaje = 'Ingresa un nombre para la categoria'
+                } else if (name.length > 45) {
+                    mensaje = 'El nombre de la categoria es demasiado largo'
+                } else {
+                    mensaje = 'El nombre de la categoria ya existe'
+                }
+
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Do you want to continue',
+                    text: mensaje,
                     icon: 'error',
-                    confirmButtonText: 'Cool'
+                    confirmButtonText: 'Continuar'
                 })
             },
         });
@@ -97,7 +117,7 @@ $(document).ready(function() {
     // ---------- Actualizar CATEGORIA----------
     $('#formUpdateCategoria').on('submit', function(event) {
         event.preventDefault();
-        let ruta = "/categoria/update";
+        let ruta = "admin/categoria/update";
         let formulario = this;
         actualizar(ruta, formulario);
     });
@@ -148,7 +168,7 @@ $(document).ready(function() {
     // ---------- ELIMINAR CATEGORIA----------
     $("form[name='formDestroyCategoria']").on('submit', function(event) {
         event.preventDefault();
-        let ruta = "/categoria/delete";
+        let ruta = "admin/categoria/delete";
         let formulario = this;
         Swal.fire({
             title: '¿Está seguro de que quiere eliminar esta categoria?',
@@ -206,7 +226,7 @@ $(document).ready(function() {
     // ---------- OBTENER INFORMACIÓN PRODUCTO----------
     $("form[name='formPoblarCategoria']").on('submit', function(event) {
         event.preventDefault();
-        let ruta = "/categoria/getCategoria";
+        let ruta = "admin/categoria/getCategoria";
         let formulario = this;
         poblarCategoria(ruta, formulario);
     });
