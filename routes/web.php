@@ -24,25 +24,25 @@ use App\Http\Controllers\ClientesController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 //Productos
 Route::get('/productos', [ProductoController::class,'productos'])->name('productos');
 Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
 Route::get('/categorias/{categoria:slug}', [ProductoController::class,'categoria'])->name('categoria');
 
 //CRUD Productos
-Route::get('prods', [ProductoController::class, 'index'])->middleware('auth');
-Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
-Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');
-Route::delete('/prods/delete', [ProductoController::class,'destroy'])->middleware('auth')->name('deleteProductos');
-Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID'])->middleware('auth')->name('getProducto');
-Route::get('/prods/editarImagenes/{producto:slug}', [ProductoController::class,'editarImagenes'])->middleware('auth')->name('editarImagenes');
-Route::delete('/prods/eliminarImagen', [ProductoController::class,'eliminarImagen'])->middleware('auth')->name('eliminarImagen');
-Route::post('/prods/agregarImagenes', [ProductoController::class,'agregarImagenes'])->middleware('auth')->name('agregarImagenes'); 
+// Route::get('prods', [ProductoController::class, 'index'])->middleware('auth')->name('adminProductos');
+// Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
+// Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');
+// Route::delete('/prods/delete', [ProductoController::class,'destroy'])->middleware('auth')->name('deleteProductos');
+// Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID'])->middleware('auth')->name('getProducto');
+// Route::get('/prods/editarImagenes/{producto:slug}', [ProductoController::class,'editarImagenes'])->middleware('auth')->name('editarImagenes');
+// Route::delete('/prods/eliminarImagen', [ProductoController::class,'eliminarImagen'])->middleware('auth')->name('eliminarImagen');
+// Route::post('/prods/agregarImagenes', [ProductoController::class,'agregarImagenes'])->middleware('auth')->name('agregarImagenes'); 
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -65,9 +65,7 @@ Route::get('/nosotros', function () {
     return view('nosotros');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 //NEWSLETTER
 //Ruta de registro al Nesletter
@@ -76,13 +74,9 @@ Route::post('/suscribir', [NewsletterController::class, 'suscribir'])->name('sus
     
 //Rutas de administracion
 
-Route::resource('categoria/',CategoriaController::class)->middleware('auth');
-Route::resource('categoria',\App\Http\Controllers\CategoriaController::class)->middleware('auth');
-Route::post('/categoria/store', [CategoriaController::class,'store'])->middleware('auth')->name('storeCategoria'); 
-Route::put('/categoria/update', [CategoriaController::class,'update'])->middleware('auth')->name('updateCategoria');
-Route::delete('/categoria/delete', [CategoriaController::class,'destroy'])->middleware('auth')->name('deleteCategoria');
-Route::get('/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 
+
+/*Compras */
 Route::get('/carrito-de-compras', [CarritoController::class,'show'])->name('carrito-de-compras');
 
 Route::middleware(['auth'])->group(function(){

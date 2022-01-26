@@ -41,11 +41,17 @@
                         <h1 class="titulo">9Volcanes</h1>
                     </div>
                     <div class="col d-flex justify-content-end">
+                        <div class="btn-group">
+                            <a class="btn btn-outline-success txtjmb" style=" color: #002800;"
+                                href="{{ route('home') }}">{{ __('Volver página principal') }}</a>
+
+                        <a class="btn link-secondary txtjmb ">/</a>
                         <form method="POST" action="{{ route('logout') }}">
-                            @csrf<a class="dropdown-item" href="{{ route('logout') }}" style=" color: #002800;"
+                            @csrf<a class="btn btn-outline-danger" href="{{ route('logout') }}" style=" color: #002800;border: none;"
                                 onclick="event.preventDefault();
                 this.closest('form').submit();"> {{ __('Cerrar Sesión') }}</a>
                         </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -74,7 +74,7 @@ $( document ).ready(function() {
     // ---------- AÑADIR NUEVO PRODUCTO----------
     $('#formStoreProducto').on('submit',function(event){
         event.preventDefault();
-        let ruta = "/prods/store";
+        let ruta = "prods/store";
         let formulario = this;
         nuevoConMultiplesArchivos(ruta,formulario);
     });
@@ -138,7 +138,7 @@ $( document ).ready(function() {
     // ---------- OBTENER INFORMACIÓN PRODUCTO----------
     $("form[name='formPoblarProducto']").on('submit',function(event){
         event.preventDefault();
-        let ruta = "/prods/getProducto";
+        let ruta = "prods/getProducto";
         let formulario = this;
         poblarProducto(ruta,formulario);
     });
@@ -189,7 +189,7 @@ $( document ).ready(function() {
     // ---------- EDITAR PRODUCTO----------
     $('#formEditProducto').on('submit',function(event){
         event.preventDefault();
-        let ruta = "/prods/update";
+        let ruta = "prods/update";
         let formulario = this;
         editar(ruta,formulario);
     });
@@ -237,7 +237,7 @@ $( document ).ready(function() {
     // ---------- ELIMINAR PRODUCTO----------
     $("form[name='formDestroyProducto']").on('submit',function(event){
         event.preventDefault();
-        let ruta = "/prods/delete";
+        let ruta = "prods/delete";
         let formulario = this;
         Swal.fire({
             title: '¿Está seguro de que quiere eliminar este producto?',
@@ -256,7 +256,7 @@ $( document ).ready(function() {
     // ---------- ELIMINAR IMAGEN----------
     $("form[name='formDestroyImagen']").on('submit',function(event){
         event.preventDefault();
-        let ruta = "/prods/eliminarImagen";
+        let ruta = "prods/eliminarImagen";
         let formulario = this;
         Swal.fire({
             title: '¿Está seguro de que quiere eliminar esta imagen?',
@@ -276,7 +276,7 @@ $( document ).ready(function() {
     // ---------- AÑADIR IMAGEN----------
     $('#formStoreImagenes').on('submit',function(event){
         event.preventDefault();
-        let ruta = "/prods/agregarImagenes";
+        let ruta = "prods/agregarImagenes";
         let formulario = this;
         nuevoConMultiplesArchivos(ruta,formulario);
     });
