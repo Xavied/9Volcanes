@@ -21,7 +21,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;"
-                            href="emprends">{{ __('Emprendimientos') }}</a>
+                            href="{{ route('showEmprendimientos') }}">{{ __('Emprendimientos') }}</a>
                     </li>
                 @endif
             </ul>

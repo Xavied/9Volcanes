@@ -61,7 +61,7 @@ $(document).ready(function() {
     // ---------- AÑADIR NUEVA EMPRENDIMIENTO----------
     $('#formStoreEmprendimiento').on('submit', function(event) {
         event.preventDefault();
-        let ruta = "/emprends/store";
+        let ruta = "/admin/emprends/store";
         let formulario = this;
         nuevo(ruta, formulario);
     });
@@ -102,7 +102,7 @@ $(document).ready(function() {
     //----------- OBTENER INFORMACION DEL EMPRENDIMIENTO---------
     $("form[name='formPoblarEmprendimiento']").on('submit',function(event){
         event.preventDefault();
-        let ruta = "/empreds/getEmprendimiento";
+        let ruta = "/admin/empreds/getEmprendimiento";
         let formulario = this;
         poblarEmprendimiento(ruta,formulario);
     });
@@ -167,7 +167,7 @@ $(document).ready(function() {
     // ---------- EDITAR EMPRENDIMIENTO----------
     $("#formEditEmprendimiento").on('submit',function(event){
         event.preventDefault();
-        let ruta = "/emprends/update";
+        let ruta = "/admin/emprends/update";
         let formulario = this;
         editar(ruta,formulario);
     });
@@ -217,7 +217,7 @@ $(document).ready(function() {
     // ---------- ELIMINAR CATEGORIA----------
     $("form[name='formDestroyEmprendimiento']").on('submit', function(event) {
         event.preventDefault();
-        let ruta = "/emprends/delete";
+        let ruta = "/admin/emprends/delete";
         let formulario = this;
         Swal.fire({
             title: '¿Está seguro de que quiere eliminar esta categoria?',
