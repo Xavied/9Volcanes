@@ -51,7 +51,6 @@ Route::as('admin.')->group(function(){
     Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newsletter');
 //}
 /*******************/
-=======
 Route::get('/dashboard', function () {
   return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
