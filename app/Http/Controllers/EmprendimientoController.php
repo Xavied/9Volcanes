@@ -84,8 +84,6 @@ class EmprendimientoController extends Controller
         if( $nombreigual  == $request->editarNombre)
         {
             //guardamos todo exactamente igual
-            $marcaIgual->nombre = $request->editarNombre;
-            $marcaIgual->slug = Str::slug($request->editarNombre, '-');
             $marcaIgual->descripcion = $request->editarDescripcion;
             $marcaIgual->save();
             return response()->json(['success' => 'Emprendimiento Editado']);

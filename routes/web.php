@@ -5,9 +5,11 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\EmprendimientoController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\EmprendimientoController;
+
 use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\ClientesController;
 
@@ -50,19 +52,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/emprendimientos', [EmprendimientoController::class, 'index'])->name('emprendimientos.index');
 Route::get('/emprendimientos/{marcae:slug}', [EmprendimientoController::class,'unemprend'])->name('emprend');
 
-//CRUD ADMIN
-//{
-//Ruta para ver todos los emprendimientos
-Route::get('/emprends', [EmprendimientoController::class, 'show'])->name('showEmprendimientos');
-//Ruta para guardar el emprendimiento
-Route::post('/emprends/store', [EmprendimientoController::class, 'storage'])->name('storeEmprendimientos');
-//Ruta para borrar un emprendimiento
-Route::delete('/emprends/delete', [EmprendimientoController::class, 'destroy'])->name('deleteEmprendimientos');
-//Ruta para actualizar el emprendimiento
-Route::put('/emprends/update', [EmprendimientoController::class, 'update'])->name('updateEmprendimientos');
-//Ruta para obtener un emprendimiento y hacer el autollenado en update
-Route::get('/empreds/getEmprendimiento/{id}', [EmprendimientoController::class,'getEmprendimientobyID'])->name('getEmprendimiento');
-//}
 //}
 
 //CRUD CLIENTE
@@ -83,10 +72,7 @@ Route::get('/dashboard', function () {
 //NEWSLETTER
 //Ruta de registro al Nesletter
 Route::post('/suscribir', [NewsletterController::class, 'suscribir'])->name('susnews');
-//Ver pagina del newsletter
-Route::get('/news', [NewsletterController::class, 'index']);
-//Enviar pagina del newsletter
-Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newsletter');
+
     
 //Rutas de administracion
 

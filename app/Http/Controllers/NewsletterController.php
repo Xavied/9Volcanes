@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-use App\Models\Clientes; //Cambiar por correos *solo utilizamos para la prueba de extracci'on de correos
+use Illuminate\Support\Facades\DB;
 use App\Models\Correos;
 use Illuminate\Validation\Rules\Unique;
 
@@ -41,19 +41,19 @@ class NewsletterController extends Controller
         $arraycorreos=null;
         //iniciamos un contador para guardar los correos
         $i=0;  
-        $correos =  Correos::select('correo')->get();//extraemos los correos suscritos
-
+        $correos = DB::table('correos')->select('correo')->get();
+        $correos=\json_decode($correos, true);
+        
         if($correos!=null) //si el correo es distinto de null
         {
+            
                 foreach ($correos as $correo) //extraemos solo la direccion del correo
                 {
 
-                    $arraycorreos[$i]=$correo->correo; //guardamos todos los correos en un array unico
+                    $arraycorreos[$i]=$correo['correo']; //guardamos todos los correos en un array unico
                     $i++; //aumenta el contador
 
-                }
-            
-            
+                }     
             $subject = "Probando el newsletter"; // Titulo del mensaje
             $for = $arraycorreos; // destinatarios (el array de correos)
             //se envia la vista "news" de la carpeta NEWSLE
@@ -62,7 +62,13 @@ class NewsletterController extends Controller
                 $mensaje->subject($subject);
                 $mensaje->to($for);
             });
+            return back()->with('mensaje', 'Enviado Correctamente');
         }
-        return redirect()->back();
+        else
+        {
+            return back()->with('mensaje', 'Todavía no hay susbcriptores :(');
+        }
+
+
     }
 }
