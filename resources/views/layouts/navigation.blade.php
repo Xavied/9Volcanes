@@ -23,6 +23,14 @@
                         <a class="nav-link " style=" color: #002800;"
                             href="{{ route('showEmprendimientos') }}">{{ __('Emprendimientos') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                            href="{{ route('sendpush') }}">{{ __('Notificacion Push') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                            href="{{ route('news') }}">{{ __('Neswletter') }}</a>
+                    </li>
                 @endif
             </ul>
         </div>
