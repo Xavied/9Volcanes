@@ -108,13 +108,15 @@ class NewsletterController extends Controller
                     $i++; //aumenta el contador
 
                 }     
-            $subject = "Probando el newsletter"; // Titulo del mensaje
+            $subject = $Titulo; // ASUNTO DEL CORREO ELECTRONICO
             $for = $arraycorreos; // destinatarios (el array de correos)
             //se envia la vista "news" de la carpeta NEWSLE
+                //se envian las variables del titulo, pathimagen y cuerpo a la vista news
             Mail::send(("NewsLe/news"),['ttlo'=>$Titulo,'imgs'=>$pathimagen, 'crp'=>$cuerpo], function($mensaje) use($subject,$for, $pathimagen){
                 $mensaje->from("nanosoft101aa@gmail.com"); //desde donde se envia.
                 $mensaje->subject($subject);
                 $mensaje->to($for);
+                //imagenes adjuntas
                 foreach($pathimagen as $pathimg)
                 {
                     $mensaje->attach("storage/$pathimg");

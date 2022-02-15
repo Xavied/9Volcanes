@@ -39,8 +39,8 @@
                         </div>                   
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                      <button type="submit" class="btn btn-primary">ENVIAR</button>
+                      <button id= "CancelenviarnewsButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button id= "enviarnewsButton" type="submit" class="btn btn-primary">ENVIAR</button>
                     </div>
 
                 </form>

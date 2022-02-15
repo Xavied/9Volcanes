@@ -25,6 +25,7 @@ $( document ).ready(function() {
             }
         }
     }
+    /******FUNCION PARA CREAR UN NUEVO NEWSLETTER */
     function nuevo(ruta, formulario) {
         let form = formulario;
         let formData = new FormData(form);
@@ -54,7 +55,9 @@ $( document ).ready(function() {
                     }).then((result) => {
                         /* Read more about isConfirmed, isDenied below */
                         if (result.isConfirmed) {
-                            location.reload()
+                            location.reload();
+                            document.getElementById('enviarnewsButton').disabled = false;
+                            document.getElementById('CancelenviarnewsButton').disabled = false;
                             //Swal.fire('Saved!', '', 'success')
                         } else if (result.isDenied) {
                             Swal.fire('Changes are not saved', '', 'info')
@@ -71,7 +74,9 @@ $( document ).ready(function() {
                     }).then((result) => {
                         /* Read more about isConfirmed, isDenied below */
                         if (result.isConfirmed) {
-                            location.reload()
+                            location.reload();
+                            document.getElementById('enviarnewsButton').disabled = false;
+                            document.getElementById('CancelenviarnewsButton').disabled = false;
                             //Swal.fire('Saved!', '', 'success')
                         } else if (result.isDenied) {
                             Swal.fire('Changes are not saved', '', 'info')
@@ -85,11 +90,26 @@ $( document ).ready(function() {
             },
         });
     }
-    // ---------- Enviar la notificación push----------
+    /**FIN FUNCION PARA CREAR UN NUEVO NEWSLETTER */
+    // ---------- Enviar EL NEWSLETTER----------
     $('#formSendNews').on('submit', function(event) {
         event.preventDefault();
         let ruta = '/admin/newsprev';
         let formulario = this;
-        nuevo(ruta, formulario);
+        Swal.fire({
+            title: '¿Está seguro de que quiere enviar este newsletter?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, enviar!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('enviarnewsButton').disabled = true;
+                document.getElementById('CancelenviarnewsButton').disabled = true;
+                nuevo(ruta, formulario);
+            }
+          })
+        
     });
 });
