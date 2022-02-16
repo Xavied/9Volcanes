@@ -105,6 +105,9 @@
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;" href="{{route('formulario')}}">Formulario para registro de Emprendedores</a>
+                    </li>
                     <li>
 
                     </li>
@@ -247,6 +250,7 @@
     <script src="{{ asset('js/requestEmprendimientos.js') }}"></script>
     <script src="{{ asset('js/requestsCategoria.js') }}"></script>
     <!--Fin jQuerys-->
+    @yield("footer")
 </body>
 
 
