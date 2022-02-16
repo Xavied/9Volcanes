@@ -137,7 +137,7 @@ class CategoriaController extends Controller
                 $categoria->slug  = Str::slug( $request->editarNombre,'-');
                 $categoria->save();
 
-                return response()->json(['success' => 'Emprendimiento Editado']);
+                return response()->json(['success' => 'Categoria Editada']);
             }
         }
     }
