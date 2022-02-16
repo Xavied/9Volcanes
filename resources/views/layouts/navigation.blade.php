@@ -24,9 +24,17 @@
                             href="{{ route('showEmprendimientos') }}">{{ __('Emprendimientos') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " style=" color: #002800;"
 
-                            href="/admin/ordenes">{{ __('Ordenes') }}</a>
+                      <a class="nav-link " style=" color: #002800;"
+                          href="{{ route('admin.ordenes.index') }}">{{ __('Ordenes') }}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " style=" color: #002800;"
+                          href="{{ route('admin.usuarios') }}">{{ __('Usuarios') }}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " style=" color: #002800;"
+                          href="{{ route('admin.telefono_direccion.index') }}">{{ __('Telefono y Dirección') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;"
@@ -39,6 +47,7 @@
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;"
                             href="{{ route('news') }}">{{ __('Neswletter') }}</a>
+
                     </li>
                 @endif
             </ul>

@@ -32,17 +32,24 @@
 
     {{-- Boostrap Icons --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
+    {{-- Fa icon --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @yield('head')
     @livewireStyles
     <script src="{{ mix('js/app.js') }}" defer></script>
-
+    
+    
 </head>
 
 <body>
-  <div class="rounded-circle position-fixed bottom-0 start-0 mt-5" style="z-index: 9999999;">
-    <a target="_blank" class="rounded-circle"
-    href="https://web.whatsapp.com/send?phone=5930986097821&text=Hola-tengo-una-duda-jeje"><img 
-    class="rounded-circle" style="height: 65px; width: 65px" src="{{ asset('images/whatsapp.png') }}" alt=""></a>
+  @php
+    use App\Models\numeroTelefono;
+    $telefono = numeroTelefono::get()->first();
+  @endphp
+  <div class="rounded-circle position-fixed bottom-0 start-0 m-3" style="z-index: 9999999;">
+    <a target="_blank" class="rounded-circle" href="https://web.whatsapp.com/send?phone={{ $telefono->numero_de_telefono }}&text=Hola me gustaria tener mas información"><img class="rounded-circle" style="height: 65px; width: 65px" src="{{ asset('images/whatsapp.png') }}" alt=""></a>
+
   </div>
 
   <!--BOTON DE SUSBCRIPCION NOITFICACION PUSH-->
@@ -140,9 +147,9 @@
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
                     </li>
-                    <li>
-
-                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " style=" color: #002800;" href="/ordenes">Ordenes</a>
+                  </li>
                 </ul>
             </div>
 
@@ -258,7 +265,8 @@
 
     <!-- LivewireScripts -->
     @livewireScripts
-
+    @include('sweetalert::alert')
+    
     <!-- jQuerys JavaScript -->
 
     <!-- Bootstrap Bundle with Popper -->

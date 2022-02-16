@@ -8,7 +8,12 @@ use App\Http\Controllers\PushController;
 use App\Http\Controllers\Admin\OrdenesController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\TelefonoDireccionController;
+use App\Http\Livewire\Admin\Usuarios;
+use App\Http\Livewire\Admin\CrearUsuario;
+use App\Http\Livewire\Admin\EditarUsuario;
 use App\Http\Controllers\ConfigController;
+
 
 
 Route::get('/prueba', function () {
@@ -18,6 +23,13 @@ Route::get('/prueba', function () {
 Route::as('admin.')->group(function(){
     Route::get('/ordenes',[OrdenesController::class,'index'])->name('ordenes.index');
     Route::get('/ordenes/{orden}',[OrdenesController::class,'show'])->name('ordenes.show');
+    
+    /* CRUD Uuarios */
+    Route::get('/usuarios', Usuarios::class)->name('usuarios');
+    Route::get('/usuarios/crear', CrearUsuario::class)->name('usuarios.create');
+    Route::get('/usuarios/{id}/editar', EditarUsuario::class)->name('usuarios.edit');
+    
+    Route::get('/telefono_direccion',[TelefonoDireccionController::class,'index'])->name('telefono_direccion.index');
 
     Route::get('prods', [ProductoController::class, 'index'])->middleware('auth')->name('adminProductos');
     Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
@@ -67,15 +79,14 @@ Route::delete('admin/categoria/delete', [CategoriaController::class,'destroy'])-
 Route::get('admin/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 /*******************/
 
-
 /* CRUD FOOTER */
 Route::get('footer', [ConfigController::class,'index'])->name('footer.index');
 Route::post('footer/update', [ConfigController::class,'update'])->name('footer.update'); 
-
 
 /*NOTIFICACION PUSH */
 Route::get('/sendpush', [PushController::class, 'index'])->name('sendpush');
 Route::post('/push', [PushController::class, 'push'])->name('push');
 /*********************/
+
 
 

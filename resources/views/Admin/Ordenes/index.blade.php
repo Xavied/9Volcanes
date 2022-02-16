@@ -1,26 +1,27 @@
 <x-app-layout>
     <br>
     <!--Breadcrumb página Home-->
-    <div class="breadtop">
+    {{-- <div class="breadtop">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active"><a href="/home">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Ordenes</li>
             </ol>
         </nav>
-    </div>
+    </div> --}}
     
     {{-- Ordenes --}}
     
     <div>
         <div class="text-center mt-3 mb-3">
-            <a href="{{ route('ordenes.index')."?estado=2" }}" class="btn btn-info">Pagadas: {{ $pagado }}</a>
-            <a href="{{ route('ordenes.index')."?estado=3" }}" class="btn btn-success">Enviadas: {{ $enviado }}</a>
-            <a href="{{ route('ordenes.index')."?estado=4" }}" class="btn btn-primary">Entregadas: {{ $entregado }}</a>
-            <a href="{{ route('ordenes.index')."?estado=5" }}" class="btn btn-dark">Anuladas: {{ $anulado }}</a>
+            <a href="{{ route('admin.ordenes.index')."?estado=1" }}" class="btn btn-danger">Pendientes: {{ $pendiente }}</a>
+            <a href="{{ route('admin.ordenes.index')."?estado=2" }}" class="btn btn-info">Pagadas: {{ $pagado }}</a>
+            <a href="{{ route('admin.ordenes.index')."?estado=3" }}" class="btn btn-success">Enviadas: {{ $enviado }}</a>
+            <a href="{{ route('admin.ordenes.index')."?estado=4" }}" class="btn btn-primary">Entregadas: {{ $entregado }}</a>
+            <a href="{{ route('admin.ordenes.index')."?estado=5" }}" class="btn btn-dark">Anuladas: {{ $anulado }}</a>
         </div>
         <div class="text-center mb-3">
-            <a href="{{ route('ordenes.index') }}" class="fs-4 text-uppercase text-muted text-decoration-none">Todas la ordenes</a>
+            <a href="{{ route('admin.ordenes.index') }}" class="fs-4 text-uppercase text-muted text-decoration-none">Todas la ordenes</a>
         </div>
         @foreach ($ordenes as $orden)
             <div class="card">
@@ -51,5 +52,4 @@
             </div>
         @endforeach
     </div>
-    
 </x-app-layout>

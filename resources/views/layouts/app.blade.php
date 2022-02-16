@@ -20,7 +20,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>9 Volcanes</title>
-
+    
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -34,7 +34,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/plantilla.css') }}">
-
+    
+    {{-- Boostrap Icons --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
     <!-- Icono -->
     <link rel="shortcut icon" href="{{ asset('images/tiendaPNG.png') }}">
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
@@ -157,6 +160,7 @@
     <script src="{{ asset('js/pushblade.js') }}"></script>
     <script src="{{ asset('js/newsletter.js') }}"></script>
     <!--Fin jQuerys-->
+    @livewireScripts()
 </body>
 
 </html>

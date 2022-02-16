@@ -3,6 +3,8 @@
 @section('head')
     <title>Pagar Orden</title>
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <script src="sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="sweetalert2.min.css">
 @endsection
 <!-- Fin sección head -->
 
@@ -67,6 +69,9 @@
                 <p>
                     Los productos deben ser recogidos en la tienda
                 </p>
+                <a class="maps-button" target="_blank" href="https://maps.google.com/?q={{ $direccion->longitud }},{{ $direccion->latitud }}">Ver ubicación
+                  <i class="fa-solid fa-location-dot"></i>
+                </a>
                 @else
                 <h6>Los productos seran enviados a las siguiente dirección:</h6>
                 <h6>{{ $orden->direccion_de_envio }}</h6>
@@ -109,8 +114,8 @@
         </table>
    </div>
    @if ($orden->estado == 1)
-    <div class="mb-3">
-        <a href="{{ route('ordenes.pagar',$orden) }}" class="btn btn-warning">Pagar esta orden</a>
+    <div class="mb-3 text-end">
+        <a href="{{ route('ordenes.pagar',$orden) }}" class="btn btn-success ">Continuar con la compra</a>
     </div>
    @endif
     
