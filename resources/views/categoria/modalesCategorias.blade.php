@@ -50,7 +50,7 @@
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label for="editarNombre" class="form-label">Nombre del Producto</label>
+                                <label for="editarNombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="editarNombre" name="editarNombre" placeholder="">
                             </div>                        
                         </div>
