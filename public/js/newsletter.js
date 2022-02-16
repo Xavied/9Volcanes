@@ -86,7 +86,10 @@ $( document ).ready(function() {
                 
             },
             error :function( data ) {
+                document.getElementById('enviarnewsButton').disabled = false;
+                document.getElementById('CancelenviarnewsButton').disabled = false;
                 error(data, formData);
+
             },
         });
     }
