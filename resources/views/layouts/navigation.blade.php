@@ -24,6 +24,7 @@
                             href="{{ route('showEmprendimientos') }}">{{ __('Emprendimientos') }}</a>
                     </li>
                     <li class="nav-item">
+
                       <a class="nav-link " style=" color: #002800;"
                           href="{{ route('admin.ordenes.index') }}">{{ __('Ordenes') }}</a>
                     </li>
@@ -34,6 +35,19 @@
                     <li class="nav-item">
                       <a class="nav-link " style=" color: #002800;"
                           href="{{ route('admin.telefono_direccion.index') }}">{{ __('Telefono y Dirección') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                            href="{{ route('footer.index') }}">{{ __('Pie de página') }}</a>                           
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                             href="{{ route('sendpush') }}">{{ __('Notificación Push') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                            href="{{ route('news') }}">{{ __('Neswletter') }}</a>
+
                     </li>
                 @endif
             </ul>

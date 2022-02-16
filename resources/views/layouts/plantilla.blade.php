@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+    use App\Models\Config;
+    $footerC1 = Config::where('id', '=', 1)->get();   
+    foreach ($footerC1 as $foot) {
+        $titleC1 = $foot->titulo;
+        $cuerpoC1 = $foot->cuerpo;
+    }
 
+    $footerC2 = Config::where('id', '=', 2)->get();
+    foreach ($footerC2 as $foot) {
+        $titleC2 = $foot->titulo;
+        $cuerpoC2 = $foot->cuerpo;
+    }
+?>
 <head>
 
     <!-- Required meta tags -->
@@ -36,7 +49,19 @@
   @endphp
   <div class="rounded-circle position-fixed bottom-0 start-0 m-3" style="z-index: 9999999;">
     <a target="_blank" class="rounded-circle" href="https://web.whatsapp.com/send?phone={{ $telefono->numero_de_telefono }}&text=Hola me gustaria tener mas información"><img class="rounded-circle" style="height: 65px; width: 65px" src="{{ asset('images/whatsapp.png') }}" alt=""></a>
+
   </div>
+
+  <!--BOTON DE SUSBCRIPCION NOITFICACION PUSH-->
+  @auth
+  <div class="rounded-circle position-fixed bottom-0 start-0" style="z-index: 9999999; margin-bottom: 80px;  ">
+    <button id="btn-nft-enable" onclick="initSW();"
+        class="rounded-circle"><img class="rounded-circle" style="height: 50px; width: 50px" src="{{ asset('images/NotificationC.png') }}" alt=""></button>
+  </div> 
+  @endauth
+
+  <!--FIN BOTON DE SUSBCRIPCION NOITFICACION PUSH-->
+  
     <!--Mensaje de agradecimiento por suscribción-->
     @if (session('mensaje'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -47,6 +72,7 @@
     <!--FIN Mensaje de agradecimiento por suscribción-->
 
     <div class="colorhead">
+        <img src="{{ url('/storage') . '/logo' . '/barra_amar.jpg' }}" class="img-fluid">
     </div>
     <!--Jumbotron-->
     <div>
@@ -54,18 +80,26 @@
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col mt-4 ml-4 mb-4">
-                        <h1 class="titulo">9Volcanes</h1>
+                        <div class="col d-flex justify-content">
+                            <div class="btn-group">
+                                <img src="{{ url('/storage') . '/logo' . '/logo_verde.png' }}"
+                                    style="width: 140px; height: 75px;" class="rounded float-start" >
+                                <h1 class="titulo text-center" style="margin-top: 8px;" >9Volcanes</h1>
+                            </div>
+                        </div>
                     </div>
                     <div class="col d-flex justify-content-end">
                         <div class="btn-group">
                             @if (Route::has('login'))
                                 @auth
                                     @role('Administrador')
-                                        <a href="{{ route('dashboard') }}" class="btn btn-outline-success txtjmb" style="">Bienvenido</a>
-                                        <a class="btn link-secondary txtjmb ">/</a>                                      
+                                        <a href="{{ route('dashboard') }}" class="btn btn-outline-success txtjmb"
+                                            style="">Bienvenido</a>
+                                        <a class="btn link-secondary txtjmb ">/</a>
                                     @endrole
                                     <form method="POST" action="{{ route('logout') }}">
-                                        @csrf<a class="btn btn-outline-danger txtjmb ms-0 me-5" href="{{ route('logout') }}"
+                                        @csrf<a class="btn btn-outline-danger txtjmb ms-0 me-5"
+                                            href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); this.closest('form').submit();">
                                             {{ __('Cerrar Sesión') }}</a>
                                     </form>
@@ -167,7 +201,7 @@
                                 <input type="text" class="form-control" id='correo' name='correo'
                                     placeholder="Ingresa tu dirección de correo " aria-label="Ingresa tu correo"
                                     aria-describedby="button-addon2">
-                                <button class="btn btn-secondary" type="submit">Registrar</button>
+                                <button class="btn btn-success" type="submit">Registrar</button>
                             </div>
                         </div>
                     </div>
@@ -181,20 +215,16 @@
             <div class="row">
                 <div class="col-sm-4 d-flex flex-column align-items-start ">
                     <div class="linefoot">
-                        <h5>Sobre la Web</h5>
+                        <h5>{{$titleC1}}</h5>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec lorem eu risus imperdiet viverra consequat id lorem.
-                        Curabitur vitae nisl in augue sodales porta. Ut vel sollicitudin dolor.</p>
+                    <p>{{$cuerpoC1 }}</p>
 
                 </div>
                 <div class="col-sm-4 d-flex flex-column align-items-start">
                     <div class="linefoot">
-                        <h5>Contactos</h5>
+                        <h5>{{$titleC2}}</h5>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec lorem eu risus imperdiet viverra consequat id lorem.
-                        Curabitur vitae nisl in augue sodales porta. Ut vel sollicitudin dolor.</p>
+                    <p>{{$cuerpoC2}}</p>
 
                 </div>
                 <div class="col-sm-4 d-flex flex-column align-items-start">
@@ -218,21 +248,19 @@
         <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col">
-                    9 Volcanes - NanoSoft100
+                <b>  9 Volcanes - NanoSoft100</b> 
                 </div>
                 <div class="col d-flex justify-content-end">
-                    <a href="" class="footer-end-link">Inicio </a>
+                    <a href="" class="footer-end-link"><b>Inicio</b> </a>
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a href="" class="footer-end-link">Avisos Legales</a>
+                    <a href="" class="footer-end-link"><b>Avisos Legales</b> </a>
                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a href="" class="footer-end-link">Cookies </a>
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a href="" class="footer-end-link">Contacto</a>
+                    <a href="" class="footer-end-link"><b>Contacto</b> </a>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <!-- Fin Footer de la página-->
 
     <!-- LivewireScripts -->
@@ -255,6 +283,9 @@
     <script src="{{ asset('js/requests.js') }}"></script>
     <script src="{{ asset('js/requestEmprendimientos.js') }}"></script>
     <script src="{{ asset('js/requestsCategoria.js') }}"></script>
+    <script src="{{ asset('js/enable-push.js') }}"></script>
+    <script src="{{ asset('js/pushblade.js') }}"></script>
+    <script src="{{ asset('js/newsletter.js') }}"></script>
     <!--Fin jQuerys-->
 </body>
 

@@ -12,6 +12,7 @@
         "bumbummen99/shoppingcart": "^4.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laravel-notification-channels/webpush": "^6.0",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
