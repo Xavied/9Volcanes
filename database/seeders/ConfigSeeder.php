@@ -20,7 +20,7 @@ class ConfigSeeder extends Seeder
     public function run()
     {
 
-      numeroTelefono::create(['numero_de_telefono' => '0986097821']);
+      numeroTelefono::create(['numero_de_telefono' => '593991422392']);
       
       direccionTienda::Create([
                               'latitud'=>'41.4033822',
