@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +11,11 @@ use App\Http\Controllers\EmprendimientoController;
 
 use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\ClientesController;
+
 use App\Http\Controllers\FormularioController;
+
+use App\Http\Controllers\PushController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -85,4 +88,6 @@ Route::get('/admin', function () {
     return view('admin');
 })->middleware(['auth'])->name('admin');
 
+/*Rutas para la notificacion webpush*/
+Route::post('/pushstore', [App\Http\Controllers\PushController::class, 'pushstore'])->name('pushstore');
 require __DIR__ . '/auth.php';

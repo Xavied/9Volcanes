@@ -1,13 +1,13 @@
 @charset "UTF-8";
 .colorhead {
-    background-color: #F8EB47;
-    padding-bottom: 1%;
+    /*background-color: #F8EB47;*/
+    margin-top: -8.5px;
 }
 
 .titulo {
-    color: #002800;
+    color: #348C39;
     font-weight: bolder;
-    font-size: 40pt;
+    font-size: 35pt;
     font-style: oblique;
 }
 
@@ -18,7 +18,7 @@
 
 .navbar {
     margin-top: 0px;
-    background-color: #e4f0f0;
+    background-color: #e3efef;
 }
 
 
@@ -39,11 +39,11 @@
 
 .breadtop li a {
     text-decoration: none;
-    color: #1AA179;
+    color: #69A37D;
 }
 
 .breadtop li a:hover {
-    color: #6C757D;
+    color: #D7D5D5;
 }
 
 
@@ -53,8 +53,8 @@
 /* Footer Container*/
 
 .suscribe {
-    background-color: #587360;
-    color: white;
+    background-color: #E7D10D;
+    color: black;
     margin-left: -10px;
     margin-right: -10px;
 }
@@ -65,15 +65,15 @@
 }
 
 .foot {
-    color: black;
+    color: white;
     padding: 10px 10px 0 10px;
     margin-left: -10px;
     margin-right: -10px;
-    background-color: #D4E0C8;
+    background-color: #69A37D;
 }
 
 .foot a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -87,17 +87,17 @@
 
 footer {
     padding: 10px 10px 10px 10px;
-    background-color: #9FA392;
-    color: white;
+    background-color: #348C39;
+    color: #D7D5D5;
 }
 
 .footer-end-link {
-    color: white;
+    color: #D7D5D5;
     text-decoration: none;
 }
 
 .linefoot {
-    border-bottom: #9FA392 2px solid;
+    border-bottom: #D7D5D5 2px solid;
     width: 100%;
 }
 
@@ -108,9 +108,10 @@ footer {
 
 @media (max-width: 991.98px) {
     .colorhead {
-        padding-bottom: 3%;
+        margin-top: -11px;
     }
     .titulo {
+        font-size: 30pt;
         text-align: center;
     }
     /* Footer Container*/

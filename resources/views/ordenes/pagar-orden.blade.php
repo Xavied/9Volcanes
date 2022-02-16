@@ -25,7 +25,9 @@
             </ol>
         </nav>
     </div>
-    
-    @livewire('pagar-orden',['orden'=>$orden])
+  
+
+    @livewire('pagar-orden',['orden'=>$orden,'direccion'=>$direccion,'telefono'=>$telefono])
     
 @endsection
+

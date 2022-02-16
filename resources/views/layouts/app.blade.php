@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <?php
+    use App\Models\Config;
+    $footerC1 = Config::where('id', '=', 1)->get();   
+    foreach ($footerC1 as $foot) {
+        $titleC1 = $foot->titulo;
+        $cuerpoC1 = $foot->cuerpo;
+    }
 
+    $footerC2 = Config::where('id', '=', 2)->get();
+    foreach ($footerC2 as $foot) {
+        $titleC2 = $foot->titulo;
+        $cuerpoC2 = $foot->cuerpo;
+    }
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>9 Volcanes</title>
-
+    
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -21,7 +34,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/plantilla.css') }}">
-
+    
+    {{-- Boostrap Icons --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    
     <!-- Icono -->
     <link rel="shortcut icon" href="{{ asset('images/tiendaPNG.png') }}">
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
@@ -30,7 +46,8 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="colorhead">
+    <div class="">
+        <img src="{{ url('/storage') . '/logo' . '/barra_amar.jpg' }}" class="img-fluid">
     </div>
     <!--Jumbotron-->
     <div>
@@ -38,7 +55,11 @@
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col mt-4 ml-4 mb-4">
-                        <h1 class="titulo">9Volcanes</h1>
+                        <div class="btn-group">
+                            <img src="{{ url('/storage') . '/logo' . '/logo_verde.png' }}"
+                                style="width: 140px; height: 75px;" class="rounded float-start" >
+                            <h1 class="titulo text-center" style="margin-top: 8px;" >9Volcanes</h1>
+                        </div>
                     </div>
                     <div class="col d-flex justify-content-end">
                         <div class="btn-group">
@@ -73,21 +94,17 @@
                 <div class="row">
                     <div class="col-sm-4 d-flex flex-column align-items-start ">
                         <div class="linefoot">
-                            <h5>Sobre la Web</h5>
+                            <h5>{{$titleC1}}</h5>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec lorem eu risus imperdiet viverra consequat id lorem.
-                            Curabitur vitae nisl in augue sodales porta. Ut vel sollicitudin dolor.</p>
-
+                        <p>{{$cuerpoC1 }}</p>
+    
                     </div>
                     <div class="col-sm-4 d-flex flex-column align-items-start">
                         <div class="linefoot">
-                            <h5>Contactos</h5>
+                            <h5>{{$titleC2}}</h5>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec lorem eu risus imperdiet viverra consequat id lorem.
-                            Curabitur vitae nisl in augue sodales porta. Ut vel sollicitudin dolor.</p>
-
+                        <p>{{$cuerpoC2}}</p>
+    
                     </div>
                     <div class="col-sm-4 d-flex flex-column align-items-start">
                         <div class="linefoot">
@@ -111,17 +128,15 @@
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col">
-                        9 Volcanes - NanoSoft100
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <a href="" class="footer-end-link">Inicio </a>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <a href="" class="footer-end-link">Avisos Legales</a>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <a href="" class="footer-end-link">Cookies </a>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <a href="" class="footer-end-link">Contacto</a>
-                    </div>
+                        <b>  9 Volcanes - NanoSoft100</b> 
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a href="" class="footer-end-link"><b>Inicio</b> </a>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <a href="" class="footer-end-link"><b>Avisos Legales</b> </a>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <a href="" class="footer-end-link"><b>Contacto</b> </a>
+                        </div>
                 </div>
             </div>
         </footer>
@@ -140,8 +155,12 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/requests.js') }}"></script>
     <script src="{{ asset('js/requestEmprendimientos.js') }}"></script>
-    <script src="{{ asset('js/requestsCategoria.js') }}"></script>
+    <script src="{{ asset('js/configFooter.js') }}"></script>
+    <script src="{{ asset('js/requestsCategoria.js') }}"></script>    
+    <script src="{{ asset('js/pushblade.js') }}"></script>
+    <script src="{{ asset('js/newsletter.js') }}"></script>
     <!--Fin jQuerys-->
+    @livewireScripts()
 </body>
 
 </html>

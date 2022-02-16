@@ -87,10 +87,10 @@
         </div>
         <div class="mx-3 mb-1">
             <form wire:submit.prevent="actualizarEstado">
-                {{-- <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline">
                     <input wire:model="estado" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
                     <label class="form-check-label" for="inlineRadio1">Pendiente</label>
-                </div> --}}
+                </div>
                 <div class="form-check form-check-inline">
                     <input wire:model="estado" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
                     <label class="form-check-label" for="inlineRadio2">Pagado</label>
