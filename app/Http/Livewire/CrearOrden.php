@@ -26,7 +26,7 @@ class CrearOrden extends Component
     
     public $rules = [
       'contacto' => 'required',
-      'telefono' => 'required',
+      'telefono' => 'required | min:9',
       'tipo_de_envio' => 'required',
     ];
     

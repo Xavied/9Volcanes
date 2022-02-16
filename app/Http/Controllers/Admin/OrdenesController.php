@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class OrdenesController extends Controller
 {
     public function index(){
-        $ordenes = Orden::query()->where('estado','<>',1);
+        $ordenes = Orden::query()->where('estado','<>',0);
         
         if (request('estado')) {
             $ordenes->where('estado', request('estado'));
@@ -18,6 +18,7 @@ class OrdenesController extends Controller
         
         $ordenes = $ordenes->get();
         
+        $pendiente = Orden::where('estado', 1)->count();
         $pagado = Orden::where('estado', 2)->count();
         $enviado = Orden::where('estado', 3)->count();
         $entregado = Orden::where('estado', 4)->count();
@@ -25,6 +26,7 @@ class OrdenesController extends Controller
         
         return view('admin.ordenes.index',
         compact([
+            'pendiente',
             'ordenes',
             'pagado',
             'enviado',

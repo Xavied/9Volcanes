@@ -7,6 +7,9 @@
             <p>
                 Los productos deben ser recogidos en la tienda
             </p>
+            <a class="maps-button" target="_blank" href="https://maps.google.com/?q={{ $direccion->longitud }},{{ $direccion->latitud }}">Ver ubicación
+              <i class="fa-solid fa-location-dot"></i>
+            </a>
             @else
             <h6>Los productos seran enviados a las siguiente dirección:</h6>
             <h6>{{ $orden->direccion_de_envio }}</h6>
@@ -48,6 +51,8 @@
         </tbody>
     </table>
     <div class="text-center mb-3">
-        <button class="btn btn-warning" wire:click="pagar()">Pagar con tarjeta de credito/debito</button>
+        <a class="whatsapp-button" target="_blank" href="https://web.whatsapp.com/send?phone={{ $telefono->numero_de_telefono }}&text= Buenos días eh comprado la orden N°{{ $orden->id }}">Contactar a la tienda 
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
     </div>
 </div>

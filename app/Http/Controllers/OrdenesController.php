@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\direccionTienda;
+use App\Models\numeroTelefono;
 use App\Models\Orden;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class OrdenesController extends Controller
@@ -48,16 +51,22 @@ class OrdenesController extends Controller
     }
     
     public function show(Orden $orden){
+        $direccion = direccionTienda::get()->first();
         $this->authorize('show', $orden);
         
         $productos = json_decode($orden->contenido);
-        return view('ordenes.show',compact(['orden','productos']));
+        return view('ordenes.show',compact(['orden','productos','direccion']));
     }
     
     public function pagar(Orden $orden){
+      
+        $direccion = direccionTienda::get()->first();
+        $telefono = numeroTelefono::get()->first();
+      
+        Alert::toast('Gracias por tu compra', 'Toast Type');
         $this->authorize('show',$orden);
         $this->authorize('pendiente',$orden);
         
-        return view('ordenes.pagar-orden',compact(['orden']));
+        return view('ordenes.pagar-orden',compact(['orden','direccion','telefono']));
     }
 }

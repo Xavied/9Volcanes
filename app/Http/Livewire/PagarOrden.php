@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\direccionTienda;
+use App\Models\numeroTelefono;
 use App\Models\Orden;
 use Livewire\Component;
 
@@ -11,9 +13,13 @@ class PagarOrden extends Component
 {
     use AuthorizesRequests;
     public $orden;
+    public $direccion;
+    public $telefono;
     
-    public function mount(Orden $orden){
-        $this->orden = $orden;   
+    public function mount(Orden $orden, direccionTienda $direccion,numeroTelefono $telefono){
+        $this->orden = $orden;
+        $this->direccion = $direccion;   
+        $this->telefono = $telefono;   
     }
     
     public function render()

@@ -6,10 +6,9 @@
 }
 
 .txtprom {
-    color: #627A6D;
+    color: #627a6d;
     font-size: 50px;
 }
-
 
 /*imagenes promociones*/
 
@@ -24,20 +23,18 @@
     transform: scale(1.02);
 }
 
-
 /*Css imagenes promociones*/
 
 .txtproducto {
     position: absolute;
     bottom: 0px;
     width: 100%;
-    background-color: rgba(222, 226, 221, .6);
+    background-color: rgba(222, 226, 221, 0.6);
 }
 
 .txtproducto a:hover {
     background-color: rgba(222, 226, 221, 0.692);
 }
-
 
 /**/
 
@@ -49,4 +46,42 @@
     .txtprom {
         font-size: 40px;
     }
+}
+
+.whatsapp-button {
+    background: #00bb2d;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 100px;
+}
+
+.whatsapp-button:hover,
+.whatsapp-button:target .whatsapp-button:active {
+    cursor: pointer;
+    color: white;
+    background: #00bb2cec;
+}
+
+.maps-button {
+    background: #db4437;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 100px;
+}
+
+.maps-button:hover,
+.maps-button:target .maps-button:active {
+    cursor: pointer;
+    color: white;
+    background: #db4537ec;
 }

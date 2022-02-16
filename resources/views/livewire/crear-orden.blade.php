@@ -9,7 +9,7 @@
                 </span><br>
             @enderror
             <label>Teléfono de contacto</label>
-            <input type="text" name="" class="form-control" wire:model.defer="telefono">
+            <input type="number" name="" class="form-control" wire:model.defer="telefono" minlength="9">
             @error('telefono')
                 <span class="form-contro text-danger">
                     Es necesario agregar el teléfono de contacto.

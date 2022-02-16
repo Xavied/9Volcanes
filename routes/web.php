@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;

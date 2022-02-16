@@ -23,6 +23,18 @@
                         <a class="nav-link " style=" color: #002800;"
                             href="{{ route('showEmprendimientos') }}">{{ __('Emprendimientos') }}</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link " style=" color: #002800;"
+                          href="{{ route('admin.ordenes.index') }}">{{ __('Ordenes') }}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " style=" color: #002800;"
+                          href="{{ route('admin.usuarios') }}">{{ __('Usuarios') }}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " style=" color: #002800;"
+                          href="{{ route('admin.telefono_direccion.index') }}">{{ __('Telefono y Dirección') }}</a>
+                    </li>
                 @endif
             </ul>
         </div>
