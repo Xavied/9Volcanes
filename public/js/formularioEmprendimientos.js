@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     $('#crearFormularioForm').on('submit',function(event){        
-        event.preventDefault();
+        event.preventDefault();        
         let inputNumeroFormularios = document.getElementById('crearFormulario');
         let numeroFormularios = parseInt(inputNumeroFormularios.value);
         for (let index = 0; index < numeroFormularios; index++) {
@@ -15,6 +15,19 @@ $( document ).ready(function() {
         inputNumeroProductos.value=numeroFormularios;
          
     }); 
+
+    function botonCargado(idBoton, texto) {
+        let boton = document.getElementById(idBoton);
+        boton.disabled = false;
+        boton.innerText = texto;
+    }
+
+    function botonCargando(idBoton) {
+        let boton = document.getElementById(idBoton);
+        boton.disabled = true;
+        boton.innerText = "Cargando...";
+    }
+
     function crearInputFile(id, labelTitle) {
         var div = document.createElement("div");
         div.className = "mb-3";
@@ -109,7 +122,8 @@ $( document ).ready(function() {
         event.preventDefault();
         let ruta = "formularioEmprendedores/enviar";
         let formulario = this;
-        subirArchivos(ruta,formulario);
+        let idBoton = 'botonEnviarFormulario';        
+        subirArchivos(ruta,formulario, idBoton);
     });
 
     function limpiarForm(formData) {
@@ -137,7 +151,9 @@ $( document ).ready(function() {
         }        
     }
 
-    function subirArchivos(ruta,formulario){
+    function subirArchivos(ruta,formulario, idBoton){
+        botonCargando(idBoton);
+        let textoBoton = "Enviar Formulario";
         let form = formulario;
         let formData = new FormData(form);
         let productos = formData.get('numeroProductos');
@@ -173,16 +189,12 @@ $( document ).ready(function() {
                     } else if (result.isDenied) {
                       Swal.fire('Changes are not saved', '', 'info')
                     }
-                  })                
+                  })   
+                  botonCargado(idBoton, textoBoton);             
             },
             error :function( data ) {
-                // Swal.fire({
-                //     title: 'Error!',
-                //     text: '¿Desea continuar?',
-                //     icon: 'error',
-                //     confirmButtonText: 'Cool'
-                // })
                 error(data, formData);
+                botonCargado(idBoton, textoBoton);
             },
         });
     }

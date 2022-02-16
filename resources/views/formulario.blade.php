@@ -51,6 +51,7 @@
                     </div>
                 </div>
             </form>
+            <br><br>
         </div>
         
 
@@ -114,7 +115,7 @@
                 <div id="contenedorFormularios"></div>
                 <br>
                 <div class="text-center col-12">
-                    <button type="submit" class="btn btn-success">Enviar formulario</button>
+                    <button type="submit" class="btn btn-success" id="botonEnviarFormulario">Enviar formulario</button>
                 </div>
             </form>
             <br><br>

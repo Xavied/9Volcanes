@@ -21,7 +21,6 @@ class FormularioMail extends Mailable
     {
         $this->data = $data;
         $this->filesMail = $filesMail;
-        //dd($data, $attachments);
     }
 
     /**
@@ -31,21 +30,13 @@ class FormularioMail extends Mailable
      */
     public function build()
     {
-        //return $this->from('nanosoft101aa@gmail.com')->subject('Formulario Nuevo Emprendedor')->view('Mails.formularioEmprendedores')->with('data', $this->data);
-        //return $this->subject('Formulario Nuevo Emprendedor')->view('Mails.formularioEmprendedores')->with('data', $this->data);
-    
         $email = $this->from('nanosoft101aa@gmail.com')->subject('Formulario Nuevo Emprendedor')->view('Mails.formularioEmprendedores')->with('data', $this->data);
         
-        //dd($this->filesMail);
-        //$filesMail is an array with file paths of filesMail
+        //Añade cada archivo al correo
         foreach($this->filesMail as $filePath){
-            //dd($filePath);
-            //$true_path = public_path().'/storage/'.$filePath;
-        
-            $email->attachFromStorage($filePath);
-        
+            $true_path = public_path().'/storage/'.$filePath;
+            $email->attach($true_path);       
         }
-        //dd($email);
         return $email;
     }
 }

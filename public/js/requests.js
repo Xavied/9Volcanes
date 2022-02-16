@@ -90,7 +90,7 @@ $( document ).ready(function() {
         return false;  
     }
 
-    //Cambiar booleano binaro a turefalse
+    //Cambiar booleano binario a truefalse
     function cambiarBooleano(booleano){
         return (booleano == 1)?true:false;
     }
