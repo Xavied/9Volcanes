@@ -54,7 +54,7 @@
 
   <!--BOTON DE SUSBCRIPCION NOITFICACION PUSH-->
   @auth
-  <div class="rounded-circle position-fixed bottom-0 start-0" style="z-index: 9999999; margin-bottom: 80px;  ">
+  <div class="rounded-circle position-fixed bottom-0 start-0" style="z-index: 9999999; margin-bottom: 90px; margin-left: 15px;  ">
     <button id="btn-nft-enable" onclick="initSW();"
         class="rounded-circle"><img class="rounded-circle" style="height: 50px; width: 50px" src="{{ asset('images/NotificationC.png') }}" alt=""></button>
   </div> 
