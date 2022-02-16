@@ -152,8 +152,10 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/requests.js') }}"></script>
     <script src="{{ asset('js/requestEmprendimientos.js') }}"></script>
-    <script src="{{ asset('js/requestsCategoria.js') }}"></script>
     <script src="{{ asset('js/configFooter.js') }}"></script>
+    <script src="{{ asset('js/requestsCategoria.js') }}"></script>    
+    <script src="{{ asset('js/pushblade.js') }}"></script>
+    <script src="{{ asset('js/newsletter.js') }}"></script>
     <!--Fin jQuerys-->
 </body>
 

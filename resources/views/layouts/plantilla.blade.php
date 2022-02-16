@@ -39,12 +39,22 @@
 </head>
 
 <body>
-    <div class="rounded-circle position-fixed bottom-0 start-0 m-3" style="z-index: 9999999;">
-        <a target="_blank" class="rounded-circle"
-            href="https://web.whatsapp.com/send?phone=5930986097821&text=Hola-tengo-una-duda-jeje"><img
-                class="rounded-circle" style="height: 65px; width: 65px" src="{{ asset('images/whatsapp.png') }}"
-                alt=""></a>
-    </div>
+  <div class="rounded-circle position-fixed bottom-0 start-0 mt-5" style="z-index: 9999999;">
+    <a target="_blank" class="rounded-circle"
+    href="https://web.whatsapp.com/send?phone=5930986097821&text=Hola-tengo-una-duda-jeje"><img 
+    class="rounded-circle" style="height: 65px; width: 65px" src="{{ asset('images/whatsapp.png') }}" alt=""></a>
+  </div>
+
+  <!--BOTON DE SUSBCRIPCION NOITFICACION PUSH-->
+  @auth
+  <div class="rounded-circle position-fixed bottom-0 start-0" style="z-index: 9999999; margin-bottom: 80px;  ">
+    <button id="btn-nft-enable" onclick="initSW();"
+        class="rounded-circle"><img class="rounded-circle" style="height: 50px; width: 50px" src="{{ asset('images/NotificationC.png') }}" alt=""></button>
+  </div> 
+  @endauth
+
+  <!--FIN BOTON DE SUSBCRIPCION NOITFICACION PUSH-->
+  
     <!--Mensaje de agradecimiento por suscribción-->
     @if (session('mensaje'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -265,6 +275,9 @@
     <script src="{{ asset('js/requests.js') }}"></script>
     <script src="{{ asset('js/requestEmprendimientos.js') }}"></script>
     <script src="{{ asset('js/requestsCategoria.js') }}"></script>
+    <script src="{{ asset('js/enable-push.js') }}"></script>
+    <script src="{{ asset('js/pushblade.js') }}"></script>
+    <script src="{{ asset('js/newsletter.js') }}"></script>
     <!--Fin jQuerys-->
 </body>
 

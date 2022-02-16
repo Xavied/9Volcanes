@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\EmprendimientoController;
-
+use App\Http\Controllers\PushController;
 use App\Http\Controllers\Admin\OrdenesController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
@@ -45,12 +45,14 @@ Route::as('admin.')->group(function(){
 /*******************/
 
 //CRUD ADMIN NEWSLETTER
-// {
+
   //Ver pagina del newsletter
     Route::get('/news', [NewsletterController::class, 'index'])->name('news');
   //Enviar pagina del newsletter
     Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newsletter');
-//}
+
+    Route::post('/newsprev', [NewsletterController::class, 'newsprev'])->name('newsprev');
+
 /*******************/
 Route::get('/dashboard', function () {
   return view('dashboard');
@@ -65,8 +67,15 @@ Route::delete('admin/categoria/delete', [CategoriaController::class,'destroy'])-
 Route::get('admin/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 /*******************/
 
+
 /* CRUD FOOTER */
 Route::get('footer', [ConfigController::class,'index'])->name('footer.index');
 Route::post('footer/update', [ConfigController::class,'update'])->name('footer.update'); 
+
+
+/*NOTIFICACION PUSH */
+Route::get('/sendpush', [PushController::class, 'index'])->name('sendpush');
+Route::post('/push', [PushController::class, 'push'])->name('push');
+/*********************/
 
 

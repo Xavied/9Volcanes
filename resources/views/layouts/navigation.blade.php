@@ -25,11 +25,20 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;"
+
                             href="/admin/ordenes">{{ __('Ordenes') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;"
-                            href="{{ route('footer.index') }}">{{ __('Pie de página') }}</a>
+                            href="{{ route('footer.index') }}">{{ __('Pie de página') }}</a>                           
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                             href="{{ route('sendpush') }}">{{ __('Notificación Push') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                            href="{{ route('news') }}">{{ __('Neswletter') }}</a>
                     </li>
                 @endif
             </ul>
