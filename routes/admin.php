@@ -8,6 +8,7 @@ use App\Http\Controllers\EmprendimientoController;
 use App\Http\Controllers\Admin\OrdenesController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ConfigController;
 
 
 Route::get('/prueba', function () {
@@ -63,4 +64,9 @@ Route::put('admin/categoria/update', [CategoriaController::class,'update'])->nam
 Route::delete('admin/categoria/delete', [CategoriaController::class,'destroy'])->name('deleteCategoria');
 Route::get('admin/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 /*******************/
+
+/* CRUD FOOTER */
+Route::get('footer', [ConfigController::class,'index'])->name('footer.index');
+Route::post('footer/update', [ConfigController::class,'update'])->name('footer.update'); 
+
 

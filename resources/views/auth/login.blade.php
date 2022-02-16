@@ -3,6 +3,8 @@
         <x-slot name="logo">
             <a href="/">
                 <!--<x-application-logo class="w-20 h-20 fill-current text-gray-500" />-->
+                <img src="{{ url('/storage') . '/logo' . '/logo_verde.png' }}"
+                style="width: 150px; height: 80px;" class="rounded float-start" >
             </a>
         </x-slot>
 

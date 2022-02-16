@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <?php
+    use App\Models\Config;
+    $footerC1 = Config::where('id', '=', 1)->get();   
+    foreach ($footerC1 as $foot) {
+        $titleC1 = $foot->titulo;
+        $cuerpoC1 = $foot->cuerpo;
+    }
 
+    $footerC2 = Config::where('id', '=', 2)->get();
+    foreach ($footerC2 as $foot) {
+        $titleC2 = $foot->titulo;
+        $cuerpoC2 = $foot->cuerpo;
+    }
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +43,8 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="colorhead">
+    <div class="">
+        <img src="{{ url('/storage') . '/logo' . '/barra_amar.jpg' }}" class="img-fluid">
     </div>
     <!--Jumbotron-->
     <div>
@@ -38,7 +52,11 @@
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col mt-4 ml-4 mb-4">
-                        <h1 class="titulo">9Volcanes</h1>
+                        <div class="btn-group">
+                            <img src="{{ url('/storage') . '/logo' . '/logo_verde.png' }}"
+                                style="width: 140px; height: 75px;" class="rounded float-start" >
+                            <h1 class="titulo text-center" style="margin-top: 8px;" >9Volcanes</h1>
+                        </div>
                     </div>
                     <div class="col d-flex justify-content-end">
                         <div class="btn-group">
@@ -73,21 +91,17 @@
                 <div class="row">
                     <div class="col-sm-4 d-flex flex-column align-items-start ">
                         <div class="linefoot">
-                            <h5>Sobre la Web</h5>
+                            <h5>{{$titleC1}}</h5>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec lorem eu risus imperdiet viverra consequat id lorem.
-                            Curabitur vitae nisl in augue sodales porta. Ut vel sollicitudin dolor.</p>
-
+                        <p>{{$cuerpoC1 }}</p>
+    
                     </div>
                     <div class="col-sm-4 d-flex flex-column align-items-start">
                         <div class="linefoot">
-                            <h5>Contactos</h5>
+                            <h5>{{$titleC2}}</h5>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec lorem eu risus imperdiet viverra consequat id lorem.
-                            Curabitur vitae nisl in augue sodales porta. Ut vel sollicitudin dolor.</p>
-
+                        <p>{{$cuerpoC2}}</p>
+    
                     </div>
                     <div class="col-sm-4 d-flex flex-column align-items-start">
                         <div class="linefoot">
@@ -111,17 +125,15 @@
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col">
-                        9 Volcanes - NanoSoft100
-                    </div>
-                    <div class="col d-flex justify-content-end">
-                        <a href="" class="footer-end-link">Inicio </a>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <a href="" class="footer-end-link">Avisos Legales</a>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <a href="" class="footer-end-link">Cookies </a>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <a href="" class="footer-end-link">Contacto</a>
-                    </div>
+                        <b>  9 Volcanes - NanoSoft100</b> 
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <a href="" class="footer-end-link"><b>Inicio</b> </a>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <a href="" class="footer-end-link"><b>Avisos Legales</b> </a>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <a href="" class="footer-end-link"><b>Contacto</b> </a>
+                        </div>
                 </div>
             </div>
         </footer>
@@ -141,6 +153,7 @@
     <script src="{{ asset('js/requests.js') }}"></script>
     <script src="{{ asset('js/requestEmprendimientos.js') }}"></script>
     <script src="{{ asset('js/requestsCategoria.js') }}"></script>
+    <script src="{{ asset('js/configFooter.js') }}"></script>
     <!--Fin jQuerys-->
 </body>
 

@@ -1,18 +1,4 @@
-@extends('layouts.plantilla')
-<!-- sección head -->
-@section('head')
-    <title>Crear Orden</title>
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-@endsection
-<!-- Fin sección head -->
-
-<!-- sección menú -->
-@section('navigation')
-
-@endsection
-<!-- Fin sección menú -->
-
-@section('content')
+<x-app-layout>
     <br>
     <!--Breadcrumb página Home-->
     <div class="breadtop">
@@ -66,4 +52,4 @@
         @endforeach
     </div>
     
-@endsection
+</x-app-layout>

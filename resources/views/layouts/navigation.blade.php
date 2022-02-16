@@ -23,6 +23,14 @@
                         <a class="nav-link " style=" color: #002800;"
                             href="{{ route('showEmprendimientos') }}">{{ __('Emprendimientos') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                            href="/admin/ordenes">{{ __('Ordenes') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;"
+                            href="{{ route('footer.index') }}">{{ __('Pie de página') }}</a>
+                    </li>
                 @endif
             </ul>
         </div>
