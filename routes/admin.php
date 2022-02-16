@@ -8,6 +8,7 @@ use App\Http\Controllers\PushController;
 use App\Http\Controllers\Admin\OrdenesController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ConfigController;
 
 
 Route::get('/prueba', function () {
@@ -66,8 +67,15 @@ Route::delete('admin/categoria/delete', [CategoriaController::class,'destroy'])-
 Route::get('admin/categoria/getCategoria/{id}', [CategoriaController::class,'getCategoriabyID'])->name('getCategoria');
 /*******************/
 
+
+/* CRUD FOOTER */
+Route::get('footer', [ConfigController::class,'index'])->name('footer.index');
+Route::post('footer/update', [ConfigController::class,'update'])->name('footer.update'); 
+
+
 /*NOTIFICACION PUSH */
 Route::get('/sendpush', [PushController::class, 'index'])->name('sendpush');
 Route::post('/push', [PushController::class, 'push'])->name('push');
 /*********************/
+
 

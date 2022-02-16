@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Config;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ProductoSeeder::class,           
             ProvinciaSeeder::class, 
             ImagenesSeeder::class,
+            ConfigSeeder::class,
           ]);
     }
 }
