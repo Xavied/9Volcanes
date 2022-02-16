@@ -49,31 +49,31 @@
         </div>
         <div class="carousel-inner carouseltmn">
             <div class="carousel-item active">
-                <img src="{{ url('/storage') . '/carousel' . '/43.jpg' }}" class="d-block imgtmncrsl " alt="Primer Slide">
+                <img src="{{ asset('images/carousel/43.jpg')}}"  class="d-block imgtmncrsl " alt="Primer Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/1.jpg' }}" class="d-block imgtmncrsl" alt="Segundo Slide">
+                <img src="{{ asset('images/carousel/1.jpg')}}" class="d-block imgtmncrsl" alt="Segundo Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/3.jpg' }}" class="d-block imgtmncrsl" alt="Tercer Slide">
+                <img src="{{ asset('images/carousel/3.jpg')}}" class="d-block imgtmncrsl" alt="Tercer Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/4.jpg' }}" class="d-block imgtmncrsl" alt="Cuarto Slide">
+                <img src="{{ asset('images/carousel/4.jpg')}}" class="d-block imgtmncrsl" alt="Cuarto Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/7.jpg' }}" class="d-block imgtmncrsl" alt="Quinto Slide">
+                <img src="{{ asset('images/carousel/7.jpg')}}" class="d-block imgtmncrsl" alt="Quinto Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/9.jpg' }}" class="d-block imgtmncrsl" alt="Cinco Slide">
+                <img src="{{ asset('images/carousel/9.jpg')}}" class="d-block imgtmncrsl" alt="Cinco Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/10.jpg' }}" class="d-block imgtmncrsl" alt="Sexto Slide">
+                <img src="{{ asset('images/carousel/10.jpg')}}"class="d-block imgtmncrsl" alt="Sexto Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/13.jpg' }}" class="d-block imgtmncrsl" alt="Septimo Slide">
+                <img src="{{ asset('images/carousel/13.jpg')}}"class="d-block imgtmncrsl" alt="Septimo Slide">
             </div>
             <div class="carousel-item">
-                <img src="{{ url('/storage') . '/carousel' . '/14.jpg' }}" class="d-block imgtmncrsl" alt="Octavo Slide">
+                <img src="{{ asset('images/carousel/14.jpg')}}" class="d-block imgtmncrsl" alt="Octavo Slide">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

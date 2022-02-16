@@ -47,7 +47,7 @@
 
 <body class="font-sans antialiased">
     <div class="">
-        <img src="{{ url('/storage') . '/logo' . '/barra_amar.jpg' }}" class="img-fluid">
+        <img src="{{ asset('images/logo/barra_amar.jpg')}}" class="img-fluid">
     </div>
     <!--Jumbotron-->
     <div>
@@ -56,7 +56,7 @@
                 <div class="row d-flex align-items-center">
                     <div class="col mt-4 ml-4 mb-4">
                         <div class="btn-group">
-                            <img src="{{ url('/storage') . '/logo' . '/logo_verde.png' }}"
+                            <img src="{{ asset('images/logo/logo_verde.png')}}"
                                 style="width: 140px; height: 75px;" class="rounded float-start" >
                             <h1 class="titulo text-center" style="margin-top: 8px;" >9Volcanes</h1>
                         </div>
