@@ -11,7 +11,11 @@ use App\Http\Controllers\EmprendimientoController;
 
 use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\ClientesController;
+
+use App\Http\Controllers\FormularioController;
+
 use App\Http\Controllers\PushController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,18 +38,13 @@ Route::get('/productos', [ProductoController::class,'productos'])->name('product
 Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
 Route::get('/categorias/{categoria:slug}', [ProductoController::class,'categoria'])->name('categoria');
 
-//CRUD Productos
-// Route::get('prods', [ProductoController::class, 'index'])->middleware('auth')->name('adminProductos');
-// Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
-// Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');
-// Route::delete('/prods/delete', [ProductoController::class,'destroy'])->middleware('auth')->name('deleteProductos');
-// Route::get('/prods/getProducto/{id}', [ProductoController::class,'getProductbyID'])->middleware('auth')->name('getProducto');
-// Route::get('/prods/editarImagenes/{producto:slug}', [ProductoController::class,'editarImagenes'])->middleware('auth')->name('editarImagenes');
-// Route::delete('/prods/eliminarImagen', [ProductoController::class,'eliminarImagen'])->middleware('auth')->name('eliminarImagen');
-// Route::post('/prods/agregarImagenes', [ProductoController::class,'agregarImagenes'])->middleware('auth')->name('agregarImagenes'); 
+//Formulario
+Route::get('/formularioEmprendedores', [FormularioController::class,'index'])->name('formulario');
+Route::post('/formularioEmprendedores/enviar', [FormularioController::class,'send'])->name('formularioEnviar');
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
 
 //Emprendimientos{

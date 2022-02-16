@@ -148,8 +148,14 @@
                         <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link " style=" color: #002800;" href="/ordenes">Ordenes</a>
-                  </li>
+
+                        <a class="nav-link " style=" color: #002800;" href="{{route('formulario')}}">Formulario para registro de Emprendedores</a>
+                    </li>
+                    <li>
+                        <a class="nav-link " style=" color: #002800;" href="/ordenes">Ordenes</a>
+                    </li>                
+                  
+
                 </ul>
             </div>
 
@@ -287,6 +293,7 @@
     <script src="{{ asset('js/pushblade.js') }}"></script>
     <script src="{{ asset('js/newsletter.js') }}"></script>
     <!--Fin jQuerys-->
+    @yield("footer")
 </body>
 
 

@@ -1999,6 +1999,7 @@
                 "source": "https://github.com/web-push-libs/web-push-php/tree/v6.0.7"
             },
             "time": "2021-11-22T17:36:01+00:00"
+
         },
         {
             "name": "monolog/monolog",
@@ -3425,6 +3426,7 @@
                 }
             ],
             "time": "2020-11-03T09:10:25+00:00"
+
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5901,6 +5903,7 @@
                 }
             ],
             "time": "2022-01-24T18:55:24+00:00"
+
         },
         {
             "name": "web-token/jwt-core",
@@ -6788,20 +6791,20 @@
         },
         {
             "name": "ibex/crud-generator",
-            "version": "v1.3",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awais-vteams/laravel-crud-generator.git",
-                "reference": "28bad86e286b9952453acb3687c8016a01022658"
+                "reference": "555e89625cd45feb9513e5042960a124e9bfb9d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awais-vteams/laravel-crud-generator/zipball/28bad86e286b9952453acb3687c8016a01022658",
-                "reference": "28bad86e286b9952453acb3687c8016a01022658",
+                "url": "https://api.github.com/repos/awais-vteams/laravel-crud-generator/zipball/555e89625cd45feb9513e5042960a124e9bfb9d0",
+                "reference": "555e89625cd45feb9513e5042960a124e9bfb9d0",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.5|^6.0|^7.0|^8.0",
+                "laravel/framework": "^5.5|^6.20.42|^7.0|^8.0|^9.0",
                 "laravelcollective/html": "^5.4|^6.0|^7.0|^8.0"
             },
             "type": "library",
@@ -6837,7 +6840,7 @@
             ],
             "support": {
                 "issues": "https://github.com/awais-vteams/laravel-crud-generator/issues",
-                "source": "https://github.com/awais-vteams/laravel-crud-generator/tree/v1.3"
+                "source": "https://github.com/awais-vteams/laravel-crud-generator/tree/v1.3.1"
             },
             "funding": [
                 {
@@ -6849,7 +6852,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2020-09-10T02:32:11+00:00"
+            "time": "2022-02-10T02:20:51+00:00"
         },
         {
             "name": "laravel/breeze",
@@ -8522,16 +8525,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "5.0.3",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49"
+                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/23bd5951f7ff26f12d4e3242864df3e08dec4e49",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
+                "reference": "19c519631c5a511b7ed0ad64a6713fdb3fd25fe4",
                 "shasum": ""
             },
             "require": {
@@ -8574,7 +8577,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.3"
+                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.4"
             },
             "funding": [
                 {
@@ -8582,7 +8585,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-11T13:31:12+00:00"
+            "time": "2022-02-10T07:01:19+00:00"
         },
         {
             "name": "sebastian/lines-of-code",
