@@ -17,7 +17,7 @@ class FormularioController extends Controller
      return view('formulario');
     }
 
-    function send(Request $request)
+    function send(CrearFormularioEmprendedoresRequest $request)
     {
         
         $filepaths = array();
@@ -30,22 +30,21 @@ class FormularioController extends Controller
                     break;
                 }
                 $name = Str::slug($request->input('empProducto_' . ($i+1))). '_'. ($i+1).'_'.($temporal+1);
-                // Define folder path
+                // Definir la ubicación de la carpeta
                 $folder = 'storage/formularioTemp/';
                 $direction = 'formularioTemp/';
-                // Make a file path where image will be stored [ folder path + file name + file extension]
+                // Crea la ubicación donde se guardará el archivo [ folder path + file name + file extension]
                 $filePath = $direction . $name. '.' . $image->getClientOriginalExtension();
-                // Upload image
-                $this->uploadOne($image, $folder, 'public', $name);
-                // Set user profile image path in database to filePath 
-                
+                // Sube el archivo
+                $this->uploadOne($image, $folder, 'public', $name);                
                 $filepaths[] = $filePath;
 
                 $temporal++;
             } while ($image != null);
             
         }
-        //dd($filepaths);
+
+        //Guarda la información del emprendedor
         $data = array(
             'empNombreEmpresa' => $request->empNombreEmpresa,
             'empNumeroRUC' => $request->empNumeroRUC,
@@ -57,9 +56,11 @@ class FormularioController extends Controller
             'empPropietario' => $request->empPropietario,
             'empContacto' => $request->empContacto,
             'empTelfContacto' => $request->empTelfContacto,            
+            'numeroProductos' => intval($request->numeroProductos),            
         
         );
 
+        //Guarda la información de cada producto
         for ($i=0; $i < $request->get('numeroProductos'); $i++) { 
             $numero=$i+1;
             $data['empProducto_'.$numero] = $request->input('empProducto_' . $numero);  
@@ -73,15 +74,12 @@ class FormularioController extends Controller
             $data['empCertificaciones_'.$numero] = $request->input('empCertificaciones_' . $numero);  
         }
 
-        //dd($data, $filepaths);
-        //$data = $request->all();
-
+        //Envía el correo
         $mailer = new FormularioMail($data, $filepaths);
-        //dd($mailer);
-     Mail::to('salop72@hotmail.com')->send($mailer);
-     return response()->json(['success' => 'Thanks for contacting us!']);
+        Mail::to('salop72@hotmail.com')->send($mailer);
+        //Muestra el mensaje cuando se envía correctamente
+        return response()->json(['success' => '¡Se envió el formulario correctamente!']);
 
-     //return back()->with('success', 'Thanks for contacting us!');
 
     }
 }

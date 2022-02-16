@@ -46,11 +46,12 @@ class CrearFormularioEmprendedoresRequest extends FormRequest
             $rules['empValorVenta_'.$numero] = 'required|numeric';
             $rules['empCapacidad_'.$numero] = 'required';
             $rules['empNotificacion_'.$numero] = 'required';
-            $rules['empCertificaciones_'.$numero] = 'required';
-            // $rules['empArchivos_'.$numero] = 'required';
-        }
+            $rules['empCertificaciones_'.$numero] = 'required';            
 
-            
+                   }
+
+        
+                    
         return $rules;
     }
 
@@ -90,10 +91,8 @@ class CrearFormularioEmprendedoresRequest extends FormRequest
             $rules['empCapacidad_'.$numero] = 'Capacidad ' .$numero;
             $rules['empNotificacion_'.$numero] = 'Notificiación ' .$numero;
             $rules['empCertificaciones_'.$numero] = 'Certificaciones ' .$numero;
-            // $rules['empArchivos_'.$numero] = 'Archivos ' .$numero;
-        }
 
-            
+        }            
         return $rules;
         
     }
