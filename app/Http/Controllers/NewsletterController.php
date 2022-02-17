@@ -45,7 +45,7 @@ class NewsletterController extends Controller
         $cuerpo = $request->mensaje;
      
         $validar=$request->validate([
-            "titulo"=>['required', 'max:150'],
+            "titulo"=>['required', 'max:45'],
             "mensaje"=>['required', 'max:150'],
             "imagen"=>['required', 'image', 'mimes:jpg,png,jpeg,gif,svg']
         ],
@@ -108,7 +108,7 @@ class NewsletterController extends Controller
                     $i++; //aumenta el contador
 
                 }     
-            $subject = $Titulo; // ASUNTO DEL CORREO ELECTRONICO
+            $subject = "9 Volcanes - ".$Titulo; // ASUNTO DEL CORREO ELECTRONICO
             $for = $arraycorreos; // destinatarios (el array de correos)
             //se envia la vista "news" de la carpeta NEWSLE
                 //se envian las variables del titulo, pathimagen y cuerpo a la vista news

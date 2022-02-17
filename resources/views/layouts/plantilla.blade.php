@@ -204,7 +204,7 @@
                     <div class="col d-flex justify-content-end">
                         <div class="container m-1">
                             <div class="input-group">
-                                <input type="text" class="form-control" id='correo' name='correo'
+                                <input type="email" class="form-control" id='correo' name='correo'
                                     placeholder="Ingresa tu dirección de correo " aria-label="Ingresa tu correo"
                                     aria-describedby="button-addon2">
                                 <button class="btn btn-success" type="submit">Registrar</button>

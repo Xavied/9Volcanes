@@ -63,7 +63,12 @@
           <table role="presentation" style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
             <tr>
               <td style="padding:40px 30px 30px 30px;text-align:center;font-size:24px;font-weight:bold;">
-                <a href="{{$urisitio}}" style="text-decoration:none;"><img src="https://assets.codepen.io/210284/logo.png" width="165" alt="Logo" style="width:165px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
+                <a href="{{$urisitio}}" style="text-decoration:none;"><img src="{{$message->embed("images/logo/logo_verde.png")}}" width="250" alt="Logo" style="width:250px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td style="margin-top:-15px;text-align:center;font-size:24px;font-weight:bold;">
+                <a href="{{$urisitio}}" style="text-decoration:none;"><h2 class="text-center" style="color: #348C39; font-weight: bolder; font-size: 35pt; font-style: oblique;" >9Volcanes</h2></a>
               </td>
             </tr>
             <tr>

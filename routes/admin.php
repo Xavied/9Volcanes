@@ -57,16 +57,17 @@ Route::as('admin.')->group(function(){
   //}
 /*******************/
 
-//CRUD ADMIN NEWSLETTER
+// ADMIN NEWSLETTER
 
   //Ver pagina del newsletter
     Route::get('/news', [NewsletterController::class, 'index'])->name('news');
   //Enviar pagina del newsletter
     Route::post('/enviar',  [NewsletterController::class, 'envio'])->name('newsletter');
-
+    //Recepción del request para el newsletter
     Route::post('/newsprev', [NewsletterController::class, 'newsprev'])->name('newsprev');
 
 /*******************/
+
 Route::get('/dashboard', function () {
   return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
