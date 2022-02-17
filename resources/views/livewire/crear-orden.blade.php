@@ -24,12 +24,13 @@
                       Retiro en tienda
                     </label>
                 </div>
-                <div class="form-check">
+
+                {{-- <div class="form-check">
                     <input class="form-check-input" type="radio" x-model="tipo_de_envio" name="tipo_de_envio" value="2">
                     <label class="form-check-label" for="flexRadioDefault2">
                       Envio a domicilio
                     </label>
-                </div>
+                </div> --}}
                                 
                 <div class="mt-4" :class="{'d-none': tipo_de_envio != 2 }">    
                     <label>Provincia</label>
