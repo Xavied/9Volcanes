@@ -258,10 +258,6 @@
                 </div>
                 <div class="col d-flex justify-content-end">
                     <a href="" class="footer-end-link"><b>Inicio</b> </a>
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a href="" class="footer-end-link"><b>Avisos Legales</b> </a>
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <a href="" class="footer-end-link"><b>Contacto</b> </a>
                 </div>
             </div>
         </div>
