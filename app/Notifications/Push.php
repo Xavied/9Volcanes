@@ -42,7 +42,7 @@ class Push extends Notification
      */
     public function toWebPush($notifiable, $notification)
     {
-        $icon='https://cdn.icon-icons.com/icons2/1508/PNG/512/googlechrome_103832.png';
+        $icon=asset("/images/logo/IconoNotPush2.png");
         return (new WebPushMessage)
         ->title($this->title)
         ->icon($icon)
