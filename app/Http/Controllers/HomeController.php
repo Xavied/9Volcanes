@@ -18,7 +18,7 @@ class HomeController extends Controller
         $productos = Producto::with('categoria', 'marca', 'Imagenes')->get(); //Obtenemos los productos 
         //$promociones = Producto::with('categoria', 'marca', 'Imagenes')->where('precio','<',5)->get();// Sleccionamos los productos con precios menores
         $promoscrl = Producto::orderBy('id', 'DESC')->with('categoria', 'marca', 'Imagenes')->take(3)->get();
-        $promociones = Orden::orderBy('id', 'DESC')->take(6)->get();
+        $promociones = Orden::orderBy('id', 'DESC')->take(6)->get();//Obtenemos las ultimas 6 ordenes y escogemos el mayor de los productos solicitados
         //dd($promociones);
 
         $infoproducts = [];
@@ -43,12 +43,12 @@ class HomeController extends Controller
             $infoid = Arr::add($infoid, (string)$id, $id);
             $promos = Producto::with('categoria', 'marca', 'Imagenes')->where('id', '=', $id)->get();
             //dd($promos);
-            $infoproducts = collect(Arr::add($infoproducts, (string)$id,  $promos));
+            $infoproducts = collect(Arr::add($infoproducts, (string)$id,  $promos));//Una lista con los productos mas solicitados
         }
         //dd($infoid);
 
 
-        ///*** */
+        ///***Opcion de Carrusel */
         $info = [];
         $idTmp = 0;
         foreach ($promoscrl as $promocrl) {
