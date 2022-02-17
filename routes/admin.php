@@ -24,13 +24,14 @@ Route::as('admin.')->group(function(){
     Route::get('/ordenes',[OrdenesController::class,'index'])->name('ordenes.index');
     Route::get('/ordenes/{orden}',[OrdenesController::class,'show'])->name('ordenes.show');
     
-    /* CRUD Uuarios */
+    /* CRUD Usuarios */
     Route::get('/usuarios', Usuarios::class)->name('usuarios');
     Route::get('/usuarios/crear', CrearUsuario::class)->name('usuarios.create');
     Route::get('/usuarios/{id}/editar', EditarUsuario::class)->name('usuarios.edit');
     
     Route::get('/telefono_direccion',[TelefonoDireccionController::class,'index'])->name('telefono_direccion.index');
 
+    //CRUD Productos
     Route::get('prods', [ProductoController::class, 'index'])->middleware('auth')->name('adminProductos');
     Route::post('/prods/store', [ProductoController::class,'store'])->middleware('auth')->name('storeProductos'); 
     Route::put('/prods/update', [ProductoController::class,'update'])->middleware('auth')->name('updateTProductos');

@@ -19,6 +19,7 @@ class ProductoController extends Controller
 {
     use UploadTrait;
 
+    //Ver todos los productos
     public function productos(Request $request)
     {     
         $buscar = $request->get('buscar_producto');   
@@ -32,11 +33,13 @@ class ProductoController extends Controller
 
     }
 
+    //Ver un producto individualmente
     public function producto(Producto $productoe)
     {
         return view('producto', ['producto' => $productoe]);
     }
 
+    //Ver productos por categoría
     public function categoria(Categoria $categoria)
     {
         $total_prod = Producto::all()->where('visible', True)->count();
@@ -49,6 +52,7 @@ class ProductoController extends Controller
 
     //CRUD admin
 
+    //Ver todos los productos en la vista de administrador
     public function index(Request $request)
     {
         $buscar = $request->get('buscar_producto');
@@ -60,7 +64,6 @@ class ProductoController extends Controller
             $productosindex = Producto::select('*')->where('nombre', 'LIKE', '%'.$buscar.'%')->get();
         }
 
-        //$productosindex = Producto::latest()->get();
         $categorias = Categoria::all(['id', 'nombre']);
         $marcas = Marca::all(['id', 'nombre']);
 
