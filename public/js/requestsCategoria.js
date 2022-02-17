@@ -191,7 +191,7 @@ $(document).ready(function() {
         return (booleano == 1) ? true : false;
     }
 
-    //Poblar modal Producto
+    //Poblar modal CATEGORIA
     function poblarCategoria(ruta, formulario) {
         let form = formulario;
         let formData = new FormData(form);
@@ -224,7 +224,7 @@ $(document).ready(function() {
             },
         });
     }
-    // ---------- OBTENER INFORMACIÓN PRODUCTO----------
+    // ---------- OBTENER INFORMACIÓN CATEGORIA----------
     $("form[name='formPoblarCategoria']").on('submit', function(event) {
         event.preventDefault();
         let ruta = "admin/categoria/getCategoria";

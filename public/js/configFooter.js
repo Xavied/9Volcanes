@@ -25,7 +25,7 @@ $(document).ready(function() {
             }
         }
     }
-    /******FUNCION PARA CREAR UN NUEVO NEWSLETTER */
+    /******FUNCION PARA CREAR UN NUEVA COLUMNA */
     function nuevo(ruta, formulario) {
         let form = formulario;
         let formData = new FormData(form);
@@ -70,8 +70,8 @@ $(document).ready(function() {
             },
         });
     }
-    /**FIN FUNCION PARA CREAR UN NUEVO NEWSLETTER */
-    // ---------- Enviar EL NEWSLETTER----------
+    /**FIN FUNCION PARA CREAR UNA NUEVA COLUMNA */
+    // ---------- Enviar MODIFICACION COLUMNA1----------
     $('#formEditFooter1').on('submit', function(event) {
         event.preventDefault();
         let ruta = '/admin/footer/update';
@@ -91,6 +91,7 @@ $(document).ready(function() {
         })
 
     });
+    // ---------- Enviar MODIFICACION COLUMNA2----------
     $('#formEditFooter2').on('submit', function(event) {
         event.preventDefault();
         let ruta = '/admin/footer/update';
@@ -110,6 +111,7 @@ $(document).ready(function() {
         })
 
     });
+    // ---------- Enviar MODIFICACION COLUMNA3 - OPIONAL----------
     $('#formEditFooter3').on('submit', function(event) {
         event.preventDefault();
         let ruta = '/admin/footer/update';
