@@ -144,15 +144,16 @@
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="/emprendimientos">Emprendimientos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link " style=" color: #002800;" href="{{route('formulario')}}">Trabaja con nosotros</a>
                     </li>
                     <li>
                         <a class="nav-link " style=" color: #002800;" href="/ordenes">Ordenes</a>
-                    </li>                
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link " style=" color: #002800;" href="/nosotros">Nosotros</a>
+                    </li>              
                   
 
                 </ul>
