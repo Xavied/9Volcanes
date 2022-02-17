@@ -1,6 +1,4 @@
-@extends('layouts/plantilla')
-
-@section('content')
+<x-app-layout>
 
 <!--Breadcrumb página productos-->
 <br>
@@ -68,4 +66,5 @@
 
 
 @include('adminProductos.modalImagenes')
-@endsection
+
+</x-app-layout>
