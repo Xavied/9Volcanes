@@ -70,6 +70,7 @@ class ProductoController extends Controller
         return view('adminProductos.indexadmin', compact('productosindex', 'categorias', 'marcas',));
     }
 
+    //Crear un producto y guardarlo en la bdd
     public function store(CrearProductoRequest $request)
     {
         $producto = new Producto;
@@ -120,6 +121,7 @@ class ProductoController extends Controller
         return response()->json(['success' => 'Producto Agregado']);
     }
 
+    //Obtener un producto por su id
     public function getProductbyID ($id)
     {
         $producto = Producto::where('id', $id)->first(['id', 'nombre', 'descripcion', 'precio', 'cantidad', 'visible', 'categoria_id', 'marca_id']);
@@ -127,6 +129,7 @@ class ProductoController extends Controller
         return $producto->toJson();
     }
 
+    //Actualizar un producto
     public function update(EditarProductoRequest $request)
     {
         $producto = Producto::find($request->idEditarProducto);
@@ -151,6 +154,7 @@ class ProductoController extends Controller
         return response()->json(['success' => 'Producto Editado']);
     }
 
+    //Eliminar un producto
     public function destroy(Request $request)
     {
         $producto = Producto::find($request->idEliminarProducto);
@@ -165,12 +169,14 @@ class ProductoController extends Controller
         return response()->json(['success' => 'Producto Eliminado']);
     }  
 
+    //Editar las imágenes de un producto
     public function editarImagenes(Producto $producto)
     {
         $producto->load('Imagenes');
         return view('adminProductos.editarImagenes', ['producto' => $producto]);
     }
 
+    //Eliminar una imagen de un producto
     public function eliminarImagen(Request $request)
     {
         $imagen = Imagenes::find($request->idEliminarImagen);
@@ -181,6 +187,7 @@ class ProductoController extends Controller
         return response()->json(['success' => 'Imagen Eliminada']);
     }
 
+    //Agregar imágenes a un producto
     public function agregarImagenes(EditarImagenesRequest $request)
     {    
         $producto = Producto::find($request->idProducto);
