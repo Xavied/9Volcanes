@@ -4,14 +4,12 @@ function initSW() {
         return;
     }
 
-    //don't use it here if you use service worker
-    //for other stuff.
     if (!"PushManager" in window) {
         //push isn't supported
         return;
     }
 
-    //register the service worker
+    //registro para el serviceworker
     navigator.serviceWorker.register('../sw.js')
         .then(() => {
             console.log('serviceWorker installed!')
@@ -48,6 +46,7 @@ function subscribeUser() {
             const subscribeOptions = {
                 userVisibleOnly: true,
                 applicationServerKey: urlBase64ToUint8Array(
+                    //AQUI VA LA PUBLIC_VAPID_KEY //
                     'BFhnfmf4KTSFPp2URazqKCPGpiyQz7PDQMJSInPeK-hiJBPKiRK147-9tatkZJs1IbNF0z0AEcVsd2FA3dCQP-E'
                     
                 )
@@ -74,6 +73,7 @@ function urlBase64ToUint8Array(base64String) {
     }
     return outputArray;
 }
+//MANDAMOS LA SUSCRIPCIÓN A LA BASE DE DATOS
 function storePushSubscription(users) {
     const token = document.querySelector('meta[name=csrf-token]').getAttribute('content');
 
