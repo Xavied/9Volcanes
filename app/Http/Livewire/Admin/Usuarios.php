@@ -35,9 +35,21 @@ class Usuarios extends Component
   
     public function destroyConfirmed()
     {
-      User::findOrFail($this->id_user)->delete();
-      $this->cerrarModalEliminar();
-      $this->emit('eliminado', 'Usuario eliminado de manera éxitosa');
+      $users = User::role('Administrador')->get()->count();
+      if($users == 1 ){
+        $user = User::findOrFail($this->id_user);
+        if($user->hasRole('Administrador')){
+          $this->cerrarModalEliminar();
+        }else{
+          $user->delete();
+          $this->cerrarModalEliminar();
+        }
+      }else{
+        User::findOrFail($this->id_user)->delete();
+        $this->cerrarModalEliminar();
+        $this->emit('eliminado', 'Usuario eliminado de manera éxitosa');
+      }
+      
     }
   
     public function render()
