@@ -76,7 +76,7 @@ class FormularioController extends Controller
 
         //Envía el correo
         $mailer = new FormularioMail($data, $filepaths);
-        Mail::to('salop72@hotmail.com')->send($mailer);
+        Mail::to('nanosoft101aa@gmail.com')->send($mailer);
         //Muestra el mensaje cuando se envía correctamente
         return response()->json(['success' => '¡Se envió el formulario correctamente!']);
 
