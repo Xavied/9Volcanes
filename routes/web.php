@@ -32,7 +32,7 @@ use App\Http\Controllers\PushController;
     return view('welcome');
 });*/
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('indexhome');
 //Productos
 Route::get('/productos', [ProductoController::class,'productos'])->name('productos');
 Route::get('/productos/{productoe:slug}', [ProductoController::class,'producto'])->name('producto');
