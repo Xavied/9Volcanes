@@ -24,27 +24,57 @@ class ConfigController extends Controller
     }
     public function update(Request $request)
     {
-
+        //EDITAR COLUMNA 1 FOOTER
         $id = $request->id;
-        $Titulo = $request->titulo;
-        $cuerpo = $request->cuerpo;
+        if($id==1)
+        {
+            $Titulo = $request->titulo;
+            $cuerpo = $request->cuerpo;
+    
+            $validar = $request->validate(
+                [
+                    "titulo" => ['required', 'max:30'],
+                    "cuerpo" => ['required', 'max:200'],
+                ],
+                [
+                    'required' => 'El campo es requerido',
+                    'max' => 'El tamaño del texto es muy grande',
+                ]
+            );
+            if ($validar == true) {
+                $configFoot = Config::find($id);
+                $configFoot->titulo = $Titulo;
+                $configFoot->cuerpo = $cuerpo;
+                $configFoot->save();
+                return response()->json(['success' => 'Columna Editada']);
+            }
 
-        $validar = $request->validate(
-            [
-                "titulo" => ['required', 'max:15'],
-                "cuerpo" => ['required', 'max:200'],
-            ],
-            [
-                'required' => 'El campo ":attribute" es requerido',
-                'max' => 'El tamaño del ":attribute" es muy grande',
-            ]
-        );
-        if ($validar == true) {
-            $configFoot = Config::find($id);
-            $configFoot->titulo = $Titulo;
-            $configFoot->cuerpo = $cuerpo;
-            $configFoot->save();
-            return response()->json(['success' => 'Columna Editada']);
         }
+        //EDITAR COLUMNA 2 FOOTER
+        if($id==2)
+        {
+            $Titulo = $request->titulo2;
+            $cuerpo = $request->cuerpo2;
+    
+            $validar = $request->validate(
+                [
+                    "titulo2" => ['required', 'max:30'],
+                    "cuerpo2" => ['required', 'max:200'],
+                ],
+                [
+                    'required' => 'El campo es requerido',
+                    'max' => 'El tamaño del texto es muy grande',
+                ]
+            );
+            if ($validar == true) {
+                $configFoot = Config::find($id);
+                $configFoot->titulo = $Titulo;
+                $configFoot->cuerpo = $cuerpo;
+                $configFoot->save();
+                return response()->json(['success' => 'Columna Editada']);
+            }
+
+        }
+       
     }
 }

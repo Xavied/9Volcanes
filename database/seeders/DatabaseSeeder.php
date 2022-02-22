@@ -22,11 +22,12 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('public/productos');
         $this->call([
             UserSeeder::class,
-            CategoriaSeeder::class,
-            MarcaSeeder::class,
-            ProductoSeeder::class,           
-            ProvinciaSeeder::class, 
-            ImagenesSeeder::class,
+        //DESCOMENTAR SI SE NECESITAN DATOS DE PRUEBA: 
+            //CategoriaSeeder::class,
+            //MarcaSeeder::class,
+            //ProductoSeeder::class,           
+            //ProvinciaSeeder::class, 
+            //ImagenesSeeder::class,
             ConfigSeeder::class,
           ]);
     }

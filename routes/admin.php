@@ -15,10 +15,10 @@ use App\Http\Livewire\Admin\EditarUsuario;
 use App\Http\Controllers\ConfigController;
 
 
-
-Route::get('/prueba', function () {
+//ruta de prueba: rutas protegidas rol ADMIN
+/*Route::get('/prueba', function () {
   return 'Admin';
-});
+});*/
 
 Route::as('admin.')->group(function(){
     Route::get('/ordenes',[OrdenesController::class,'index'])->name('ordenes.index');

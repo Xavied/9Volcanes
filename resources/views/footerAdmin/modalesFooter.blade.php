@@ -59,13 +59,13 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="x" class="form-label">Título de la Columna</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="">
-                    <p class="invalid-feedback" id="error-titulo"></p>
+                    <input type="text" class="form-control" id="titulo2" name="titulo2" placeholder="">
+                    <p class="invalid-feedback" id="error-titulo2"></p>
                 </div>                
                 <div class="mb-3">
                     <label for="x" class="form-label">Descripción de la columna</label>
-                    <textarea class="form-control" id="cuerpo" name="cuerpo" rows="3"></textarea>
-                    <p class="invalid-feedback" id="error-cuerpo"></p>
+                    <textarea class="form-control" id="cuerpo2" name="cuerpo2" rows="3"></textarea>
+                    <p class="invalid-feedback" id="error-cuerpo2"></p>
                 </div>  
                 <input type="hidden" id="id" name="id" value="2">                     
             </div>
@@ -79,7 +79,7 @@
     </div>
 </div>
 
-<!--Columna 3-->
+{{-- <!--Columna 3-->
 <div class="modal fade" id="modalNuevaColumna3" tabindex="-1" aria-labelledby="modalNuevaColumna3" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -111,4 +111,4 @@
 
       </div>
     </div>
-</div>
+</div> --}}
