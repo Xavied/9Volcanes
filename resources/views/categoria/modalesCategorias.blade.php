@@ -39,8 +39,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-           <!-- <form method="post" action="{{ route('categoria.update', $categoria->id) }}" role="form"
-                enctype="multipart/form-data">-->
+           {{-- <!-- <form method="post" action="{{ route('categoria.update', $categoria->id) }}" role="form"
+                enctype="multipart/form-data">--> --}}
                 
 
                 <form id="formUpdateCategoria" enctype="multipart/form-data" role="form">
